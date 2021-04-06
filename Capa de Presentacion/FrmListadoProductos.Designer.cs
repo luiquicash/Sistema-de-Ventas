@@ -31,11 +31,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListadoProductos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -92,8 +92,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbTipoGoma = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lbltotalproductos = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -128,14 +126,14 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -149,14 +147,14 @@
             this.fechamodificacion,
             this.itbis,
             this.tipoGOma});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Name = "dataGridView1";
@@ -193,9 +191,9 @@
             // 
             // Nombres
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Nombres.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Nombres.DefaultCellStyle = dataGridViewCellStyle7;
             this.Nombres.FillWeight = 56.27266F;
             resources.ApplyResources(this.Nombres, "Nombres");
             this.Nombres.Name = "Nombres";
@@ -203,9 +201,9 @@
             // 
             // pVenta
             // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.pVenta.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.pVenta.DefaultCellStyle = dataGridViewCellStyle8;
             this.pVenta.FillWeight = 56.27266F;
             resources.ApplyResources(this.pVenta, "pVenta");
             this.pVenta.Name = "pVenta";
@@ -213,9 +211,9 @@
             // 
             // cantidad
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.cantidad.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.cantidad.DefaultCellStyle = dataGridViewCellStyle9;
             this.cantidad.FillWeight = 56.27266F;
             resources.ApplyResources(this.cantidad, "cantidad");
             this.cantidad.Name = "cantidad";
@@ -246,7 +244,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.SeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.Gray;
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.txttotalG);
             this.groupBox1.Controls.Add(this.label5);
@@ -266,7 +264,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.SeaGreen;
+            this.groupBox3.BackColor = System.Drawing.Color.Gray;
             this.groupBox3.Controls.Add(this.rbfechamod);
             this.groupBox3.Controls.Add(this.rbfechaing);
             this.groupBox3.Controls.Add(this.label12);
@@ -572,18 +570,6 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // cbTipoGoma
-            // 
-            resources.ApplyResources(this.cbTipoGoma, "cbTipoGoma");
-            this.cbTipoGoma.FormattingEnabled = true;
-            this.cbTipoGoma.Name = "cbTipoGoma";
-            this.cbTipoGoma.SelectedIndexChanged += new System.EventHandler(this.cbTipoGoma_SelectedIndexChanged);
-            // 
             // label14
             // 
             resources.ApplyResources(this.label14, "label14");
@@ -603,13 +589,11 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.lbltotalproductos);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.cbTipoGoma);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtdesc);
@@ -702,8 +686,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechamodificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn itbis;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoGOma;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbTipoGoma;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbltotalproductos;
         private System.Windows.Forms.TextBox textBox5;

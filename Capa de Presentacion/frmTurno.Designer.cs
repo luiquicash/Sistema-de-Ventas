@@ -55,7 +55,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Open Sans Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_imprimir;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(397, 405);
             this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.label2);

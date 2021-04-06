@@ -223,8 +223,7 @@ namespace Capa_de_Presentacion
                 }
             }
 
-            total = pagos - devuelta;
-            lblmontoingreso.Text = total.ToString();
+            lblmontoingreso.Text = pagos.ToString();
             con.Close();
         }
 

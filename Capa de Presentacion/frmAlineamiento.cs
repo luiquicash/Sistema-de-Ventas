@@ -2,7 +2,6 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Capa_de_Presentacion
@@ -32,19 +31,18 @@ namespace Capa_de_Presentacion
         public void clean()
         {
             Program.pagoRealizado = 0;
-            Program.Id = 0;
-            Program.Aros = "";
-            Program.total = 0;
+            Program.Id4 = 0;
+            Program.fecha4 = "";
+            Program.pago4 = 0;
             Program.nota = "";
-            Program.descripcion = "";
-            Program.marca = "";
-            Program.modelo = "";
-
-            txtaros.Clear();
+            Program.nombre4 = "";
+            Program.apellido4 = "";
+            Program.tipopago4 = "";
+            txttipopago.Text = "";
             txtTotal.Clear();
-            txtnota.Clear();
-            txtMarca.Clear();
-            txtmodelo.Clear();
+            txtnombre.Clear();
+            txttipopago.Clear();
+            txtapellido.Clear();
             Program.realizopago = false;
             Program.ReImpresion = "";
         }
@@ -57,21 +55,12 @@ namespace Capa_de_Presentacion
 
         private void frmTaller_Activated(object sender, EventArgs e)
         {
-            txtMarca.Text = Program.marca;
-            txtmodelo.Text = Program.modelo;
-            cbtipo.Text = Program.descripcion;
-            ; txtaros.Text = Program.Aros;
-            txtTotal.Text = Convert.ToString(Program.total);
-            txtnota.Text = Program.nota;
-            lblidAliBal.Text = Program.Id + "";
-
-            if (Program.Id > 0)
-            {
-                btnpagar.Hide();
-                button1.Show();
-                button1.Text = "Imprimir";
-                button1.BackColor = Color.Khaki;
-            }
+            txtapellido.Text = Program.apellido4;
+            txttipopago.Text = Program.tipopago4;
+            txtnombre.Text = Program.nombre4;
+            dtpFecha.Text = Program.fecha4;
+            txtTotal.Text = Convert.ToString(Program.pago4);
+            lblidAliBal.Text = Program.Id4 + "";
         }
 
 
@@ -91,29 +80,22 @@ namespace Capa_de_Presentacion
 
             //SUB CABECERA.
             ticket.TextoIzquierda("ATENDIDO: " + txtUsu.Text);
-            ticket.TextoIzquierda("FECHA: " + DateTime.Now.ToShortDateString());
-            ticket.TextoIzquierda("HORA: " + DateTime.Now.ToShortTimeString());
+            ticket.TextoIzquierda("FECHA: " + dtpFecha.Text);
 
             //ARTICULOS A VENDER.
             ticket.lineasGuio();
 
-            ticket.TextoIzquierda("TIPO DE TRABAJO: " + cbtipo.Text);
-            ticket.TextoIzquierda("MARCA: " + txtMarca.Text);
-            ticket.TextoIzquierda("MODELO: " + txtmodelo.Text);
-            ticket.TextoIzquierda("AROS No.: " + txtaros.Text);
-            ticket.TextoIzquierda("NOTA: " + txtnota.Text);
+            ticket.TextoIzquierda("TIPO DE PAGO CLIENTE: " + txttipopago.Text);
+            ticket.TextoIzquierda("NOMBRE CLIENTE: " + txtnombre.Text);
+            ticket.TextoIzquierda("APELLIDO: " + txtapellido.Text);
             ticket.TextoIzquierda("");
             //resumen de la venta
-            ticket.AgregarTotales("       COSTO TOTAL DEL SERVICIO : ", decimal.Parse(txtTotal.Text));
+            ticket.AgregarTotales("       MONTO PAGADO: ", decimal.Parse(txtTotal.Text));
 
             //TEXTO FINAL DEL TICKET
             ticket.TextoIzquierda("EXTRA");
-            ticket.TextoIzquierda("-FAVOR REVISE MUY BIEN EL TRABAJO AL RECIBIRLO");
-            ticket.TextoIzquierda("-SOLO GARANTIZAMOS EL TRABAJO REALIZADO POR NOSOTROS");
             ticket.TextoCentro("!GRACIAS POR VISITARNOS");
 
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
@@ -133,60 +115,80 @@ namespace Capa_de_Presentacion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (Program.Id > 0)
+            var ProximaFechaPago = dtpFecha.Value;
+            using (SqlConnection con = new SqlConnection(Cx.conet))
             {
-                tickEstiloP();
-            }
-            else
-            {
-                using (SqlConnection con = new SqlConnection(Cx.conet))
+                using (SqlCommand cmd = new SqlCommand("Registrarpagocliente", con))
                 {
-                    using (SqlCommand cmd = new SqlCommand("RegistrarAlineamientoBalanceo", con))
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@IdCliente", SqlDbType.Int).Value = Program.Id4;
+
+                    var tipopago = txttipopago.Text.ToLower();
+                    if (tipopago == "diario")
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("@IdEmpleado", SqlDbType.Int).Value = Convert.ToInt32(txtidEmp.Text);
-                        cmd.Parameters.Add("@tipoDeTrabajo", SqlDbType.VarChar).Value = cbtipo.Text.ToUpper();
-                        cmd.Parameters.Add("@vehiculo", SqlDbType.NVarChar).Value = (txtMarca.Text + " " + txtmodelo.Text).ToUpper();
-                        cmd.Parameters.Add("@AroGoma", SqlDbType.Int).Value = Convert.ToInt32(txtaros.Text);
-                        cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = Convert.ToDateTime(dtpFecha.Text);
-                        cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = Convert.ToDecimal(txtTotal.Text);
-                        cmd.Parameters.Add("@nota", SqlDbType.NVarChar).Value = txtnota.Text;
+                        ProximaFechaPago = dtpFecha.Value.AddDays(1);
+                    }
+                    else if (tipopago == "semanal")
+                    {
+                        ProximaFechaPago = dtpFecha.Value.AddDays(7);
+                    }
+                    else if (tipopago == "quincenal")
+                    {
+                        ProximaFechaPago = dtpFecha.Value.AddDays(14);
+                    }
+                    else if (tipopago == "mensual")
+                    {
+                        ProximaFechaPago = dtpFecha.Value.AddMonths(1);
+                    }
+                    else
+                    {
+                        ProximaFechaPago = dtpFecha.Value.AddYears(1);
+                    }
+
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = ProximaFechaPago.ToString();
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    using (SqlCommand cmd2 = new SqlCommand("pagos_re", con))
+                    {
+                        cmd2.CommandType = CommandType.StoredProcedure;
+
+                        //Tabla de pago
+                        cmd2.Parameters.Add("@IdVenta", SqlDbType.Int).Value = 0;
+                        cmd2.Parameters.Add("@id_pago", SqlDbType.Int).Value = Program.idPago;
+                        cmd2.Parameters.Add("@id_caja", SqlDbType.Int).Value = Program.idcaja;
+                        cmd2.Parameters.Add("@monto", SqlDbType.Decimal).Value = Program.Caja;
+                        cmd2.Parameters.Add("@ingresos", SqlDbType.Decimal).Value = Program.pagoRealizado;
+                        if (Program.Devuelta > 0)
+                        {
+                            cmd2.Parameters.Add("@egresos", SqlDbType.Decimal).Value = Program.Devuelta;
+                        }
+                        else
+                        {
+                            cmd2.Parameters.Add("@egresos", SqlDbType.Decimal).Value = 0;
+                        }
+                        cmd2.Parameters.Add("@fecha", SqlDbType.DateTime).Value = Convert.ToDateTime(Program.Fechapago);
+                        cmd2.Parameters.Add("@deuda", SqlDbType.Decimal).Value = 0;
 
                         con.Open();
-                        cmd.ExecuteNonQuery();
+                        cmd2.ExecuteNonQuery();
                         con.Close();
-
-                        using (SqlCommand cmd2 = new SqlCommand("pagos_re", con))
-                        {
-                            cmd2.CommandType = CommandType.StoredProcedure;
-
-                            //Tabla de pago
-                            cmd2.Parameters.Add("@IdVenta", SqlDbType.Int).Value = 0;
-                            cmd2.Parameters.Add("@id_pago", SqlDbType.Int).Value = Program.idPago;
-                            cmd2.Parameters.Add("@id_caja", SqlDbType.Int).Value = Program.idcaja;
-                            cmd2.Parameters.Add("@monto", SqlDbType.Decimal).Value = Program.Caja;
-                            cmd2.Parameters.Add("@ingresos", SqlDbType.Decimal).Value = Program.pagoRealizado;
-                            if (Program.Devuelta > 0)
-                            {
-                                cmd2.Parameters.Add("@egresos", SqlDbType.Decimal).Value = Program.Devuelta;
-                            }
-                            else
-                            {
-                                cmd2.Parameters.Add("@egresos", SqlDbType.Decimal).Value = 0;
-                            }
-                            cmd2.Parameters.Add("@fecha", SqlDbType.DateTime).Value = Convert.ToDateTime(Program.Fechapago);
-                            cmd2.Parameters.Add("@deuda", SqlDbType.Decimal).Value = 0;
-
-                            con.Open();
-                            cmd2.ExecuteNonQuery();
-                            con.Close();
-                        }
-                        Program.pagoRealizado = 0;
-                        MessageBox.Show(cbtipo.Text + "Registrada y Pago Confirmado");
-                        tickEstiloP();
-                        clean();
                     }
+                    Program.pagoRealizado = 0;
+                    MessageBox.Show("Pago Confirmado");
+                    if (DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea Factura?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                    {
+                        tickEstiloP();
+                    }
+                    clean();
+                    Program.abiertosecundarias = false;
+                    Program.abierto = false;
+                    FrmBuscarAlineacionyBalanceo F = new FrmBuscarAlineacionyBalanceo();
+                    F.limpiar();
+                    F.cargardata();
                 }
+                this.Close();
             }
         }
 
@@ -202,15 +204,6 @@ namespace Capa_de_Presentacion
         {
             validar.solonumeros(e);
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FrmBuscarAlineacionyBalanceo F = new FrmBuscarAlineacionyBalanceo();
-            F.lblLogo.Text = lblLogo.Text;
-            F.lblDir.Text = lbldir.Text;
-            F.Show();
-        }
-
         private void txtMarca_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.sololetras(e);
@@ -218,8 +211,6 @@ namespace Capa_de_Presentacion
 
         private void frmAlineamiento_Load(object sender, EventArgs e)
         {
-            cargar_combo_Tipo(cbtipo);
-            cbtipo.SelectedIndex = 0;
             button1.Hide();
         }
 
@@ -231,12 +222,11 @@ namespace Capa_de_Presentacion
             pa.btnCerrar.Visible = false;
             button1.Show();
 
-            Program.modelo = txtmodelo.Text;
-            Program.descripcion = cbtipo.Text;
-            Program.marca = txtMarca.Text;
-            Program.Aros = txtaros.Text;
-            Program.total = Convert.ToDecimal(txtTotal.Text);
-            Program.nota = txtnota.Text;
+            Program.tipopago4 = txttipopago.Text;
+            Program.nombre4 = txtnombre.Text;
+            Program.apellido4 = txtapellido.Text;
+            Program.fecha4 = dtpFecha.Text;
+            Program.pago4 = Convert.ToDecimal(txtTotal.Text);
 
             pa.Show();
         }

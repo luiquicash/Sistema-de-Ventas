@@ -139,7 +139,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Font = new System.Drawing.Font("Open Sans", 7.8F);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.groupBox2.Location = new System.Drawing.Point(566, 111);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(435, 386);
@@ -154,12 +154,12 @@
             this.lblcomp.AutoEllipsis = true;
             this.lblcomp.AutoSize = true;
             this.lblcomp.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lblcomp.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold);
+            this.lblcomp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lblcomp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblcomp.Location = new System.Drawing.Point(85, 42);
             this.lblcomp.Margin = new System.Windows.Forms.Padding(0);
             this.lblcomp.Name = "lblcomp";
-            this.lblcomp.Size = new System.Drawing.Size(178, 20);
+            this.lblcomp.Size = new System.Drawing.Size(171, 18);
             this.lblcomp.TabIndex = 76;
             this.lblcomp.Text = "Tipo de Comprobante";
             this.lblcomp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -170,7 +170,7 @@
             this.txtid.Enabled = false;
             this.txtid.Location = new System.Drawing.Point(232, 107);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(82, 25);
+            this.txtid.Size = new System.Drawing.Size(82, 22);
             this.txtid.TabIndex = 75;
             // 
             // label6
@@ -178,7 +178,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(43, 107);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 19);
+            this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 74;
             this.label6.Text = "ID NCF";
             // 
@@ -189,7 +189,7 @@
             this.dtpfinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpfinal.Location = new System.Drawing.Point(232, 215);
             this.dtpfinal.Name = "dtpfinal";
-            this.dtpfinal.Size = new System.Drawing.Size(165, 25);
+            this.dtpfinal.Size = new System.Drawing.Size(165, 22);
             this.dtpfinal.TabIndex = 72;
             // 
             // dtpinicio
@@ -199,7 +199,7 @@
             this.dtpinicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpinicio.Location = new System.Drawing.Point(232, 170);
             this.dtpinicio.Name = "dtpinicio";
-            this.dtpinicio.Size = new System.Drawing.Size(165, 25);
+            this.dtpinicio.Size = new System.Drawing.Size(165, 22);
             this.dtpinicio.TabIndex = 71;
             // 
             // txtfinal
@@ -207,7 +207,7 @@
             this.txtfinal.BackColor = System.Drawing.Color.White;
             this.txtfinal.Location = new System.Drawing.Point(232, 333);
             this.txtfinal.Name = "txtfinal";
-            this.txtfinal.Size = new System.Drawing.Size(165, 25);
+            this.txtfinal.Size = new System.Drawing.Size(165, 22);
             this.txtfinal.TabIndex = 70;
             this.txtfinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtinicio_KeyPress);
             // 
@@ -216,7 +216,7 @@
             this.txtinicio.BackColor = System.Drawing.Color.White;
             this.txtinicio.Location = new System.Drawing.Point(232, 286);
             this.txtinicio.Name = "txtinicio";
-            this.txtinicio.Size = new System.Drawing.Size(165, 25);
+            this.txtinicio.Size = new System.Drawing.Size(165, 22);
             this.txtinicio.TabIndex = 69;
             this.txtinicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtinicio_KeyPress);
             // 
@@ -225,7 +225,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(43, 286);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 19);
+            this.label4.Size = new System.Drawing.Size(117, 17);
             this.label4.TabIndex = 68;
             this.label4.Text = "Secuencia Inicial:";
             // 
@@ -234,7 +234,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(43, 341);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 19);
+            this.label3.Size = new System.Drawing.Size(112, 17);
             this.label3.TabIndex = 67;
             this.label3.Text = "Secuencia Final:";
             // 
@@ -243,7 +243,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 19);
+            this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 66;
             this.label2.Text = "Fecha Final:";
             // 
@@ -252,14 +252,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(43, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 19);
+            this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 65;
             this.label1.Text = "Fecha Inicial:";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.data_ncf);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 7.8F);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.groupBox1.Location = new System.Drawing.Point(24, 111);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox1.Name = "groupBox1";
@@ -277,7 +277,7 @@
             this.data_ncf.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 7.8F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -329,7 +329,7 @@
             this.btnAplicar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnAplicar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnAplicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAplicar.Font = new System.Drawing.Font("Open Sans", 10.2F);
+            this.btnAplicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnAplicar.ForeColor = System.Drawing.Color.Black;
             this.btnAplicar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_aplicar;
             this.btnAplicar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -357,10 +357,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Open Sans", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(345, 44);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(297, 33);
+            this.label7.Size = new System.Drawing.Size(299, 29);
             this.label7.TabIndex = 113;
             this.label7.Text = "Limitaciones de los NCF";
             // 
@@ -368,7 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1027, 746);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);

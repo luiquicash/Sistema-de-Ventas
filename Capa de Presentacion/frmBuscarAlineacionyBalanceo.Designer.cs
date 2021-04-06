@@ -32,13 +32,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDeTrabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AroGoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbtipo = new System.Windows.Forms.ComboBox();
@@ -55,6 +48,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipopago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -74,11 +74,11 @@
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.tipoDeTrabajo,
-            this.vehiculo,
-            this.AroGoma,
-            this.precio,
-            this.nota,
+            this.nombre,
+            this.apellido,
+            this.Tiempo,
+            this.tipopago,
+            this.pago,
             this.fecha});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(21, 170);
@@ -88,86 +88,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(902, 435);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // tipoDeTrabajo
-            // 
-            this.tipoDeTrabajo.HeaderText = "Tipo de Trabajo";
-            this.tipoDeTrabajo.MinimumWidth = 6;
-            this.tipoDeTrabajo.Name = "tipoDeTrabajo";
-            this.tipoDeTrabajo.Width = 125;
-            // 
-            // vehiculo
-            // 
-            this.vehiculo.HeaderText = "Vehiculo";
-            this.vehiculo.MinimumWidth = 6;
-            this.vehiculo.Name = "vehiculo";
-            this.vehiculo.Width = 125;
-            // 
-            // AroGoma
-            // 
-            this.AroGoma.HeaderText = "Gomas Aro No.";
-            this.AroGoma.MinimumWidth = 6;
-            this.AroGoma.Name = "AroGoma";
-            this.AroGoma.Width = 125;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.MinimumWidth = 6;
-            this.precio.Name = "precio";
-            this.precio.Width = 125;
-            // 
-            // nota
-            // 
-            this.nota.HeaderText = "Nota";
-            this.nota.MinimumWidth = 10;
-            this.nota.Name = "nota";
-            this.nota.Visible = false;
-            this.nota.Width = 135;
-            // 
-            // fecha
-            // 
-            // 
-            // 
-            // 
-            this.fecha.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
-            this.fecha.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.fecha.MinimumWidth = 6;
-            // 
-            // 
-            // 
-            this.fecha.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.fecha.MonthCalendar.BackgroundStyle.Class = "";
-            this.fecha.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.fecha.MonthCalendar.CommandsBackgroundStyle.Class = "";
-            this.fecha.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.fecha.MonthCalendar.DisplayMonth = new System.DateTime(2019, 7, 1, 0, 0, 0, 0);
-            this.fecha.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.fecha.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.fecha.MonthCalendar.NavigationBackgroundStyle.Class = "";
-            this.fecha.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.fecha.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
-            this.fecha.Name = "fecha";
-            this.fecha.Width = 125;
             // 
             // label2
             // 
@@ -187,47 +107,47 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(291, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(399, 29);
+            this.label3.Size = new System.Drawing.Size(355, 29);
             this.label3.TabIndex = 113;
-            this.label3.Text = "Listado de Alineacion y Balanceo";
+            this.label3.Text = "Listado de Pagos Pendientes";
             // 
             // cbtipo
             // 
             this.cbtipo.BackColor = System.Drawing.Color.White;
-            this.cbtipo.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbtipo.ForeColor = System.Drawing.Color.MidnightBlue;
             this.cbtipo.FormattingEnabled = true;
             this.cbtipo.Location = new System.Drawing.Point(199, 138);
             this.cbtipo.Margin = new System.Windows.Forms.Padding(4);
             this.cbtipo.Name = "cbtipo";
-            this.cbtipo.Size = new System.Drawing.Size(173, 26);
+            this.cbtipo.Size = new System.Drawing.Size(173, 24);
             this.cbtipo.TabIndex = 114;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.SeaGreen;
-            this.label11.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(215, 117);
+            this.label11.Location = new System.Drawing.Point(225, 117);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(141, 19);
+            this.label11.Size = new System.Drawing.Size(122, 17);
             this.label11.TabIndex = 115;
-            this.label11.Text = "Por Tipo de trabajo:";
+            this.label11.Text = "Por Tipo de pago:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(18, 622);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 17);
+            this.label4.Size = new System.Drawing.Size(109, 17);
             this.label4.TabIndex = 117;
-            this.label4.Text = "Total Vendido:";
+            this.label4.Text = "Total ha cobrar:";
             // 
             // txttotalG
             // 
-            this.txttotalG.Location = new System.Drawing.Point(124, 619);
+            this.txttotalG.Location = new System.Drawing.Point(145, 619);
             this.txttotalG.Name = "txttotalG";
             this.txttotalG.Size = new System.Drawing.Size(151, 22);
             this.txttotalG.TabIndex = 116;
@@ -239,7 +159,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_imprimir;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -296,13 +216,13 @@
             // 
             // agregargasto
             // 
-            this.agregargasto.BackColor = System.Drawing.Color.SeaGreen;
+            this.agregargasto.BackColor = System.Drawing.Color.Gray;
             this.agregargasto.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.agregargasto.FlatAppearance.BorderSize = 0;
             this.agregargasto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.agregargasto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.agregargasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregargasto.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregargasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agregargasto.ForeColor = System.Drawing.Color.Black;
             this.agregargasto.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_buscar;
             this.agregargasto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,13 +237,13 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SeaGreen;
+            this.button1.BackColor = System.Drawing.Color.Gray;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_buscar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,13 +259,13 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.SeaGreen;
-            this.label6.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(28, 141);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 19);
+            this.label6.Size = new System.Drawing.Size(121, 17);
             this.label6.TabIndex = 125;
             this.label6.Text = "Tipos de Filtrados";
             // 
@@ -366,11 +286,90 @@
             this.label1.TabIndex = 127;
             this.label1.Text = "Buscar Por Nombre:";
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 125;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apelido";
+            this.apellido.MinimumWidth = 6;
+            this.apellido.Name = "apellido";
+            this.apellido.Width = 125;
+            // 
+            // Tiempo
+            // 
+            this.Tiempo.HeaderText = "Semanas(Activo)";
+            this.Tiempo.MinimumWidth = 6;
+            this.Tiempo.Name = "Tiempo";
+            this.Tiempo.Width = 125;
+            // 
+            // tipopago
+            // 
+            this.tipopago.HeaderText = "Tipo de Pago";
+            this.tipopago.MinimumWidth = 6;
+            this.tipopago.Name = "tipopago";
+            this.tipopago.Width = 125;
+            // 
+            // pago
+            // 
+            this.pago.HeaderText = "Pago";
+            this.pago.MinimumWidth = 6;
+            this.pago.Name = "pago";
+            this.pago.Width = 125;
+            // 
+            // fecha
+            // 
+            // 
+            // 
+            // 
+            this.fecha.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
+            this.fecha.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.fecha.HeaderText = "Fecha Pago";
+            this.fecha.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.fecha.MinimumWidth = 6;
+            // 
+            // 
+            // 
+            this.fecha.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.fecha.MonthCalendar.BackgroundStyle.Class = "";
+            this.fecha.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.fecha.MonthCalendar.CommandsBackgroundStyle.Class = "";
+            this.fecha.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.fecha.MonthCalendar.DisplayMonth = new System.DateTime(2019, 7, 1, 0, 0, 0, 0);
+            this.fecha.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.fecha.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.fecha.MonthCalendar.NavigationBackgroundStyle.Class = "";
+            this.fecha.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.fecha.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.fecha.Name = "fecha";
+            this.fecha.Width = 125;
+            // 
             // FrmBuscarAlineacionyBalanceo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(942, 662);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -410,15 +409,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox cbtipo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeTrabajo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehiculo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AroGoma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nota;
-        private DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn fecha;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txttotalG;
         public System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DateTimePicker dtpfecha1;
         private System.Windows.Forms.Label label5;
@@ -429,6 +420,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipopago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pago;
+        private DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn fecha;
+        public System.Windows.Forms.TextBox txttotalG;
 #pragma warning restore CS0246 // El nombre del tipo o del espacio de nombres 'DevComponents' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
     }
 }

@@ -138,7 +138,7 @@ namespace Capa_de_Presentacion
                     "dbo.Producto.PrecioCompra,dbo.DetalleVenta.PrecioUnitario, dbo.DetalleVenta.Igv,dbo.DetalleVenta.Cantidad, dbo.DetalleVenta.IdProducto," +
                     "NombreCliente=COALESCE(dbo.Venta.NombreCliente, ' '),dbo.Venta.IdVenta,dbo.Venta.Restante,dbo.Venta.Tipofactura,dbo.Venta.Total," +
                     "dbo.Venta.IdEmpleado,dbo.Venta.TipoDocumento,dbo.Venta.NroDocumento,dbo.Venta.FechaVenta FROM  dbo.Venta inner join dbo.DetalleVenta ON " +
-                    "dbo.Venta.IdVenta = dbo.DetalleVenta.IdVenta AND dbo.DetalleVenta.IdVenta = dbo.Venta.IdVenta and dbo.Venta.borrado=" + borrado+"inner join dbo.Producto ON " +
+                    "dbo.Venta.IdVenta = dbo.DetalleVenta.IdVenta AND dbo.DetalleVenta.IdVenta = dbo.Venta.IdVenta and dbo.Venta.borrado=" + borrado + "inner join dbo.Producto ON " +
                     "dbo.DetalleVenta.IdProducto=dbo.Producto.IdProducto";
             }
             //especificamos que es de tipo Text
@@ -226,7 +226,7 @@ namespace Capa_de_Presentacion
             Program.NCF = dataGridView1.CurrentRow.Cells["NCF"].Value.ToString();
             Program.NroComprobante = dataGridView1.CurrentRow.Cells["nroComprobante"].Value.ToString();
             Program.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
-            Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
+            Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
             Program.ST += Convert.ToDecimal(dataGridView1.CurrentRow.Cells["subtotal"].Value.ToString());
             Program.igv += Convert.ToDecimal(dataGridView1.CurrentRow.Cells["igv"].Value.ToString());
             Program.fecha = dataGridView1.CurrentRow.Cells["fecha"].Value.ToString();
@@ -235,12 +235,12 @@ namespace Capa_de_Presentacion
             if (Program.tipo != "Credito")
             {
                 Program.Esabono = "";
-                Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
+                Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
             }
             else
             {
                 Program.Esabono = "Es Abono";
-                Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["restante"].Value.ToString());
+                Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["restante"].Value.ToString());
             }
 
             Program.ReImpresion = "Copia Factura";
@@ -612,7 +612,7 @@ namespace Capa_de_Presentacion
                 comando.CommandText = "SELECT Categoria.Descripcion AS CategoryOfProducts,sum(DetalleVenta.Cantidad) AS CantidadOfProducts,sum(DetalleVenta.SubTotal) AS PrecioOfProducts" +
                     " FROM DetalleVenta INNER JOIN Producto ON DetalleVenta.IdProducto = Producto.IdProducto INNER JOIN Categoria ON Producto.IdCategoria = Categoria.IdCategoria " +
                     "INNER JOIN Venta ON DetalleVenta.IdVenta = Venta.IdVenta  where venta.FechaVenta BETWEEN convert(datetime, CONVERT(varchar(10),@fecha1, 103), 103) AND " +
-                    "convert(datetime, CONVERT(varchar(10),@fecha2, 103), 103) and dbo.Venta.borrado=" + borrado+"group by Categoria.Descripcion ORDER BY sum(DetalleVenta.Cantidad) DESC";
+                    "convert(datetime, CONVERT(varchar(10),@fecha2, 103), 103) and dbo.Venta.borrado=" + borrado + "group by Categoria.Descripcion ORDER BY sum(DetalleVenta.Cantidad) DESC";
                 comando.Parameters.AddWithValue("@fecha1", fecha1);
                 comando.Parameters.AddWithValue("@fecha2", fecha2);
             }
@@ -621,7 +621,7 @@ namespace Capa_de_Presentacion
                 //declaramos el comando para realizar la busqueda
                 comando.CommandText = "SELECT Categoria.Descripcion AS CategoryOfProducts,sum(DetalleVenta.Cantidad) AS CantidadOfProducts,sum(DetalleVenta.SubTotal) AS PrecioOfProducts" +
                     " FROM DetalleVenta INNER JOIN Producto ON DetalleVenta.IdProducto = Producto.IdProducto INNER JOIN Categoria ON Producto.IdCategoria = Categoria.IdCategoria " +
-                    "INNER JOIN Venta ON DetalleVenta.IdVenta = Venta.IdVenta and dbo.Venta.borrado=" + borrado+"group by Categoria.Descripcion ORDER BY sum(DetalleVenta.Cantidad) DESC";
+                    "INNER JOIN Venta ON DetalleVenta.IdVenta = Venta.IdVenta and dbo.Venta.borrado=" + borrado + "group by Categoria.Descripcion ORDER BY sum(DetalleVenta.Cantidad) DESC";
             }
             //especificamos que es de tipo Text
             comando.CommandType = CommandType.Text;

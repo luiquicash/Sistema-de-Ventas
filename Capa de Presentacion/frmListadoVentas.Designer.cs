@@ -539,7 +539,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.SeaGreen;
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
@@ -658,7 +658,7 @@
             // 
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.Gray;
             this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -793,7 +793,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1371, 690);
             this.Controls.Add(this.vereliminadas);
             this.Controls.Add(this.cbtipodocumento);

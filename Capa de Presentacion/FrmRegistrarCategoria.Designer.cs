@@ -59,7 +59,6 @@
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(284, 25);
             this.txtCategoria.TabIndex = 1;
-           // this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
             // 
             // btnGuardar
             // 
@@ -68,7 +67,7 @@
             this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -89,7 +88,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_salir_de_24;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,10 +140,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Open Sans Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(99, 33);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(236, 33);
+            this.label11.Size = new System.Drawing.Size(241, 29);
             this.label11.TabIndex = 79;
             this.label11.Text = "Registrar Categoria";
             // 
@@ -152,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(413, 251);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.linkLabel1);

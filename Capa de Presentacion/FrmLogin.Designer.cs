@@ -86,7 +86,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.DarkCyan;
+            this.groupBox1.BackColor = System.Drawing.Color.DimGray;
             this.groupBox1.Controls.Add(this.rbNCF);
             this.groupBox1.Controls.Add(this.rbVentas);
             this.groupBox1.Controls.Add(this.rbInventario);
@@ -148,7 +148,6 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Capa_de_Presentacion.Properties.Resources.LogoCepeda;
             this.pictureBox2.Location = new System.Drawing.Point(20, 32);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(573, 200);
@@ -236,7 +235,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(229)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_usuarios1;
             this.pictureBox1.Location = new System.Drawing.Point(3, 6);
             this.pictureBox1.Name = "pictureBox1";
@@ -249,7 +248,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(581, 470);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 17);
@@ -391,7 +390,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(229)))));
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(894, 496);
             this.Controls.Add(this.panelmontoinicial);
             this.Controls.Add(this.button1);

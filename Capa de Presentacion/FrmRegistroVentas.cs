@@ -41,12 +41,8 @@ namespace Capa_de_Presentacion
             {
                 txtPVenta.Enabled = false;
                 txtIgv.Enabled = false;
-                txtDivisor.Enabled = false;
-                txtPorcentaje.Enabled = false;
             }
 
-            txtDivisor.Text = "1.18";
-            txtPorcentaje.Text = "";
             Program.ReImpresion = "";
             Program.datoscliente = "";
             Program.realizopago = false;
@@ -220,7 +216,7 @@ namespace Capa_de_Presentacion
             txtPVenta.Text = Program.PrecioVenta + "";
             txtIgv.Text = Program.itbis + "";
             txtIdV.Text = Program.Id + "";
-            txttotal.Text = Program.total + "";
+            txttotal.Text = Program.pago4 + "";
             lblsubt.Text = Program.ST + "";
             lbligv.Text = Program.igv + "";
 
@@ -262,7 +258,7 @@ namespace Capa_de_Presentacion
                 cbtipofactura.Text = Program.tipo;
                 combo_tipo_NCF.Text = Program.NCF;
                 txtNCF.Text = Program.NroComprobante;
-                txttotal.Text = Program.total + "";
+                txttotal.Text = Program.pago4 + "";
                 lblsubt.Text = Program.ST + "";
                 lbligv.Text = Program.igv + "";
                 txtidEmp.Text = Program.IdEmpleado + "";
@@ -346,26 +342,8 @@ namespace Capa_de_Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             clsVenta V = new clsVenta();
-
-            decimal precio = 0;
-            decimal itbis = 0;
-            if (txtPorcentaje.Text.Trim() != "" && txtPVenta.Text.Trim() != "")
-            {
-                decimal precioreal = Convert.ToDecimal(txtPVenta.Text);
-                decimal porcentaje = Convert.ToInt32(txtPorcentaje.Text);
-                decimal valortotalporcentaje = 100;
-                decimal divisor = Convert.ToDecimal(txtDivisor.Text);
-
-                decimal calculoporcentaje = Math.Round(porcentaje / valortotalporcentaje, 2);
-
-                precio = Math.Round(precioreal / divisor, 2);
-                itbis = Math.Round(precio * calculoporcentaje, 2);
-            }
-            else
-            {
-                precio = Convert.ToDecimal(txtPVenta.Text);
-                itbis = Convert.ToDecimal(txtIgv.Text);
-            }
+            var precio = Convert.ToDecimal(txtPVenta.Text);
+            var itbis = Convert.ToDecimal(txtIgv.Text);
             if (txtDescripcion.Text.Trim() != "")
             {
                 if (txtCantidad.Text.Trim() != "")
@@ -455,7 +433,6 @@ namespace Capa_de_Presentacion
             txtCantidad.Clear();
             txtCantidad.Focus();
             txtIgv.Text = "";
-            txtPorcentaje.Text = "";
             Program.Descripcion = "";
             Program.Stock = 0;
             Program.Marca = "";
@@ -468,7 +445,7 @@ namespace Capa_de_Presentacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             frmPagar pa = new frmPagar();
-            Program.total = Convert.ToDecimal(txttotal.Text);
+            Program.pago4 = Convert.ToDecimal(txttotal.Text);
             Program.igv = Convert.ToDecimal(lbligv.Text);
             Program.ST = Convert.ToDecimal(lblsubt.Text);
             pa.txtmonto.Text = txttotal.Text;
@@ -752,7 +729,7 @@ namespace Capa_de_Presentacion
             Program.ApellidosCliente = "";
             Program.NombreCliente = "";
             Program.Id = 0;
-            Program.total = 0;
+            Program.pago4 = 0;
             Program.ST = 0;
             Program.igv = 0;
             Program.fecha = "";
@@ -941,8 +918,6 @@ namespace Capa_de_Presentacion
             {
                 txtPVenta.Enabled = false;
                 txtIgv.Enabled = false;
-                txtDivisor.Enabled = false;
-                txtPorcentaje.Enabled = false;
             }
 
             this.Close();

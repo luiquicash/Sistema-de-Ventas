@@ -30,7 +30,6 @@ namespace Capa_de_Presentacion
             repetitivo();
             Mrepetitivo();
             button2.Enabled = false;
-            ListarElementostipo();
             clear();
         }
         public void buscarid()
@@ -51,30 +50,6 @@ namespace Capa_de_Presentacion
                 rbtodos.Checked = false;
                 radioButton1.Checked = false;
             }
-            Cx.conexion.Close();
-        }
-
-        public void buscardesc()
-        {
-            Cx.conexion.Open();
-            string sql = "select descripcion from tipoGOma where id =@id";
-            SqlCommand cmd = new SqlCommand(sql, Cx.conexion);
-            cmd.Parameters.AddWithValue("@id", cbTipoGoma.SelectedValue);
-            if (cbTipoGoma.SelectedValue != null)
-            {
-                SqlDataReader reade = cmd.ExecuteReader();
-                if (reade.Read())
-                {
-                    id.Text = cbTipoGoma.SelectedIndex.ToString();
-                    textBox5.Text = Convert.ToString(reade["descripcion"]);
-                    rbbuena.Checked = false;
-                    rdmedia.Checked = false;
-                    rbCero.Checked = false;
-                    rbtodos.Checked = false;
-                    radioButton1.Checked = false;
-                }
-            }
-
             Cx.conexion.Close();
         }
 
@@ -107,24 +82,6 @@ namespace Capa_de_Presentacion
                 column.Description = "Normal";
             }
         }
-
-        private void ListarElementostipo()
-        {
-            if (id.Text.Trim() != "")
-            {
-                cbTipoGoma.DisplayMember = "descripcion";
-                cbTipoGoma.ValueMember = "id";
-                cbTipoGoma.DataSource = C.ListarC();
-                cbTipoGoma.Text = textBox5.Text;
-            }
-            else
-            {
-                cbTipoGoma.DisplayMember = "descripcion";
-                cbTipoGoma.ValueMember = "id";
-                cbTipoGoma.DataSource = C.ListarC();
-            }
-        }
-
 
         private void ListarElementos()
         {
@@ -656,11 +613,6 @@ namespace Capa_de_Presentacion
         string Reporte;
         private void To_pdf()
         {
-            if (textBox5.Text != "")
-            {
-                Reporte = "Inventario Por Tipo Productos " + cbTipoGoma.Text;
-            }
-
             if (txtdesc.Text != "")
             {
                 Reporte = "Inventario de Productos por Categoria " + cbxCategoria.Text;
@@ -986,68 +938,6 @@ namespace Capa_de_Presentacion
             else
             {
                 MessageBox.Show("Por Favor Seleccione un producto antes de eliminarlo");
-            }
-        }
-
-        private void cbTipoGoma_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            buscardesc();
-            decimal compras = 0, total = 0, ventas = 0, totalproducto = 0;
-            if (textBox5.Text != "")
-            {
-                //declaramos la cadena  de conexion
-                string cadenaconexion = Cx.conet;
-                //variable de tipo Sqlconnection
-                SqlConnection con = new SqlConnection();
-                //variable de tipo Sqlcommand
-                SqlCommand comando = new SqlCommand();
-                //variable SqlDataReader para leer los datos
-                SqlDataReader dr;
-                con.ConnectionString = cadenaconexion;
-                comando.Connection = con;
-                //declaramos el comando para realizar la busqueda
-                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where tipoGOma=@desc";
-                comando.Parameters.AddWithValue("@desc", textBox5.Text);
-                //especificamos que es de tipo Text
-                comando.CommandType = CommandType.Text;
-                //se abre la conexion
-                con.Open();
-                //limpiamos los renglones de la datagridview
-                dataGridView1.Rows.Clear();
-                //a la variable DataReader asignamos  el la variable de tipo SqlCommand
-                dr = comando.ExecuteReader();
-                //el ciclo while se ejecutará mientras lea registros en la tabla
-                while (dr.Read())
-                {
-                    //variable de tipo entero para ir enumerando los la filas del datagridview
-                    int renglon = dataGridView1.Rows.Add();
-                    // especificamos en que fila se mostrará cada registro
-                    // nombredeldatagrid.filas[numerodefila].celdas[nombrdelacelda].valor=\
-
-                    dataGridView1.Rows[renglon].Cells[0].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("IdProducto")));
-                    dataGridView1.Rows[renglon].Cells[1].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("IdCategoria")));
-                    dataGridView1.Rows[renglon].Cells[2].Value = dr.GetString(dr.GetOrdinal("Nombre"));
-                    dataGridView1.Rows[renglon].Cells[3].Value = dr.GetString(dr.GetOrdinal("Marca"));
-                    dataGridView1.Rows[renglon].Cells[4].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("PrecioCompra")));
-                    dataGridView1.Rows[renglon].Cells[5].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("PrecioVenta")));
-                    dataGridView1.Rows[renglon].Cells[6].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("Stock")));
-                    dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
-                    dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
-                    dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
-
-                    compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
-                    ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
-                    totalproducto += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[6].Value);
-                    total = ventas - compras;
-                    txttotalG.Text = Convert.ToString(total);
-                    lbltotalproductos.Text = Convert.ToString(totalproducto);
-                }
-                con.Close();
-            }
-            else
-            {
-                CargarListado();
             }
         }
 

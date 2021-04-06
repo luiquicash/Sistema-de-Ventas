@@ -93,7 +93,7 @@
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_producto_30;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,7 +207,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_abrir_carpeta_16;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -224,7 +224,7 @@
             // 
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Open Sans Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.Red;
             this.btnCerrar.Location = new System.Drawing.Point(663, 12);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
@@ -287,7 +287,7 @@
             // 
             // gbPagar
             // 
-            this.gbPagar.BackColor = System.Drawing.Color.SeaGreen;
+            this.gbPagar.BackColor = System.Drawing.Color.Gray;
             this.gbPagar.Controls.Add(this.btnC);
             this.gbPagar.Controls.Add(this.label6);
             this.gbPagar.Controls.Add(this.txtmonto);
@@ -313,7 +313,7 @@
             // 
             this.btnC.FlatAppearance.BorderSize = 0;
             this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnC.Font = new System.Drawing.Font("Open Sans Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnC.ForeColor = System.Drawing.Color.Red;
             this.btnC.Location = new System.Drawing.Point(662, 19);
             this.btnC.Margin = new System.Windows.Forms.Padding(4);
@@ -380,7 +380,7 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_dinero_241;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -432,7 +432,7 @@
             // 
             // txtCaja1
             // 
-            this.txtCaja1.BackColor = System.Drawing.Color.SeaGreen;
+            this.txtCaja1.BackColor = System.Drawing.Color.Gray;
             this.txtCaja1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCaja1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCaja1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -473,12 +473,12 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(941, 364);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(150, 25);
+            this.dateTimePicker1.Size = new System.Drawing.Size(150, 22);
             this.dateTimePicker1.TabIndex = 18;
             // 
             // frmPagar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(732, 231);
@@ -488,7 +488,7 @@
             this.Controls.Add(this.gbPagar);
             this.Controls.Add(this.gbAbrir);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPagar";

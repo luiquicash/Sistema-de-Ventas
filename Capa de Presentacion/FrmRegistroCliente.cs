@@ -17,6 +17,7 @@ namespace Capa_de_Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var ProximaFechaPago = DateTime.Today;
             if (txtDni.Text.Trim() != "")
             {
                 if (txtApellidos.Text.Trim() != "")
@@ -43,6 +44,32 @@ namespace Capa_de_Presentacion
                                             cmd.Parameters.Add("@Direccion", SqlDbType.NVarChar).Value = txtDireccion.Text;
                                             cmd.Parameters.Add("@Telefono", SqlDbType.NVarChar).Value = txtTelefono.Text;
                                             cmd.Parameters.Add("@estado", SqlDbType.Int).Value = 1;
+                                            cmd.Parameters.Add("@TipoPago", SqlDbType.NVarChar).Value = combo_tipo_pago.Text;
+                                            cmd.Parameters.Add("@tiempo", SqlDbType.Int).Value = 0;
+
+                                            var tipopago = combo_tipo_pago.Text.ToLower();
+                                            if (tipopago == "diario")
+                                            {
+                                                ProximaFechaPago.AddDays(1);
+                                            }
+                                            else if (tipopago == "semanal")
+                                            {
+                                                ProximaFechaPago.AddDays(7);
+                                            }
+                                            else if (tipopago == "quincenal")
+                                            {
+                                                ProximaFechaPago.AddDays(14);
+                                            }
+                                            else if (tipopago == "mensual")
+                                            {
+                                                ProximaFechaPago.AddMonths(1);
+                                            }
+                                            else
+                                            {
+                                                ProximaFechaPago.AddYears(1);
+                                            }
+
+                                            cmd.Parameters.Add("@ProximaFechaPago", SqlDbType.Date).Value = ProximaFechaPago.ToString();
 
                                             DevComponents.DotNetBar.MessageBoxEx.Show("Se Registro Correctamente", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -95,72 +122,26 @@ namespace Capa_de_Presentacion
             txtTelefono.Clear();
             txtDni.Focus();
         }
+
+        public void cargar_combo_pago(ComboBox combo_tipo_pago)
+        {
+            SqlCommand cm = new SqlCommand("CARGARcomboPago", Cx.conexion);
+            cm.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cm);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            combo_tipo_pago.DisplayMember = "descripcion";
+            combo_tipo_pago.ValueMember = "id";
+            combo_tipo_pago.DataSource = dt;
+        }
+
         //bool activo;
         private void FrmRegistroCliente_Load(object sender, EventArgs e)
         {
             txtDni.Focus();
+            cargar_combo_pago(combo_tipo_pago);
         }
-        //private void FrmRegistroCliente_Activated(object sender, EventArgs e)
-        //      {
-        //          if (txtIdC.Text == "")
-        //          {
-        //              activo = true;
-        //          }
-        //          else
-        //          {
-        //              activo = false;
-        //          }
-
-        //          if (activo == false)
-        //          {
-        //              SqlCommand command = new SqlCommand("SELECT dbo.Cliente.imagen FROM dbo.Cliente WHERE dbo.Cliente.imagen IS NOT NULL AND  dbo.Cliente.Cliente = @Clave", Cx.conexion);
-        //              command.Parameters.AddWithValue("@Clave", txtIdC.Text);
-
-        //              Cx.conexion.Open();
-        //              SqlDataReader leer = command.ExecuteReader();
-
-        //              if (leer.Read() == false)
-        //              {
-        //                  pictureBox1.Image = null;
-        //              }
-
-        //              else
-        //              {//Representa un set de comandos que es utilizado para llenar un DataSet
-        //                  SqlDataAdapter dp = new SqlDataAdapter(command);
-        //                  Cx.conexion.Close();
-
-        //                  //Representa un caché (un espacio) en memoria de los datos.
-        //                  DataSet ds = new DataSet("Cliente");
-        //                    //Arreglo de byte en donde se almacenara la foto en bytes
-        //                      byte[] MyData = new byte[0];
-
-        //                      //Llenamosel DataSet con la tabla. 
-        //                      dp.Fill(ds, "Cliente");
-
-        //                      //Inicializamos una fila de datos en la cual se almacenaran todos los datos de la fila seleccionada
-        //                      DataRow myRow = ds.Tables["Cliente"].Rows[0];
-
-        //                  if (myRow["imagen"] != DBNull.Value)
-        //                  {
-        //                      //Se almacena el campo foto de la tabla en el arreglo de bytes
-        //                      MyData = (byte[])myRow["imagen"];
-
-        //                      //Se inicializa un flujo en memoria del arreglo de bytes
-        //                      MemoryStream stream = new MemoryStream(MyData);
-
-        //                      //En el picture box se muestra la imagen que esta almacenada en el flujo en memoria 
-        //                      //el cual contiene el arreglo de bytes
-        //                      pictureBox1.Image = System.Drawing.Image.FromStream(stream);
-        //                  }
-        //                  else
-        //                  {
-        //                      pictureBox1.Image = null;
-        //                  }
-
-        //              }
-        //          }
-        //      }
-
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.solonumeros(e);
@@ -177,15 +158,6 @@ namespace Capa_de_Presentacion
             Program.abierto = false;
             this.Close();
         }
-
-        //private void button2_Click_1(object sender, EventArgs e)
-        //{
-        //	OpenFileDialog flg = new OpenFileDialog();
-        //	flg.InitialDirectory = "C:\\";
-        //	flg.Filter = "Archivos jpg (*.jpg)|*.jpg|Archivos png (*.png)|*.png";
-        //	if (flg.ShowDialog() == DialogResult.OK) pictureBox1.Load(flg.FileName);
-        //}
-
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -214,8 +186,9 @@ namespace Capa_de_Presentacion
                                             cmd.Parameters.Add("@Nombres", SqlDbType.NVarChar).Value = txtNombres.Text;
                                             cmd.Parameters.Add("@Direccion", SqlDbType.NVarChar).Value = txtDireccion.Text;
                                             cmd.Parameters.Add("@Telefono", SqlDbType.NVarChar).Value = txtTelefono.Text;
+                                            cmd.Parameters.Add("@Tipopago", SqlDbType.NVarChar).Value = combo_tipo_pago.Text;
+                                            cmd.Parameters.Add("@monto", SqlDbType.Decimal).Value = txtmonto.Text;
                                             cmd.Parameters.Add("@estado", SqlDbType.Int).Value = 1;
-
                                             DevComponents.DotNetBar.MessageBoxEx.Show("Se Actualizo Correctamente", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                             con.Open();
@@ -257,6 +230,11 @@ namespace Capa_de_Presentacion
                 txtDni.Focus();
             }
 
+        }
+
+        private void txtmonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.solonumeros(e);
         }
     }
 }

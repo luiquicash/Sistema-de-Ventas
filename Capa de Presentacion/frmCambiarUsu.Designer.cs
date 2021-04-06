@@ -40,14 +40,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.SeaGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.Gray;
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnIngresar);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUser);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -65,7 +65,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_salir_de_24;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,7 +86,7 @@
             this.btnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIngresar.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold);
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnIngresar.ForeColor = System.Drawing.Color.Black;
             this.btnIngresar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_entrar;
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -106,7 +106,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(201, 32);
+            this.txtPassword.Size = new System.Drawing.Size(201, 28);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
@@ -116,7 +116,7 @@
             this.txtUser.Location = new System.Drawing.Point(42, 125);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(201, 32);
+            this.txtUser.Size = new System.Drawing.Size(201, 28);
             this.txtUser.TabIndex = 2;
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -127,7 +127,7 @@
             this.label5.Location = new System.Drawing.Point(109, 184);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 26);
+            this.label5.Size = new System.Drawing.Size(68, 24);
             this.label5.TabIndex = 1;
             this.label5.Text = "Clave:";
             // 
@@ -138,7 +138,7 @@
             this.label6.Location = new System.Drawing.Point(99, 97);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 26);
+            this.label6.Size = new System.Drawing.Size(87, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "Usuario:";
             // 

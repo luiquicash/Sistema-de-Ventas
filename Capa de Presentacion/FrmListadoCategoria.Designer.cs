@@ -46,11 +46,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(26, 118);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 20);
+            this.label1.Size = new System.Drawing.Size(127, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Categoria:";
             // 
@@ -121,7 +121,7 @@
             this.btnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.Black;
             this.btnNuevo.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_nuevo;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,7 +142,7 @@
             this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.Black;
             this.btnEditar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_editar;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,10 +171,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(103, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 33);
+            this.label3.Size = new System.Drawing.Size(248, 29);
             this.label3.TabIndex = 113;
             this.label3.Text = "Listado de Categorias";
             // 
@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(449, 374);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

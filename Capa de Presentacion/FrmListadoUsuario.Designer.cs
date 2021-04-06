@@ -109,11 +109,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(27, 126);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(105, 18);
             this.label1.TabIndex = 6;
             this.label1.Text = "Buscar Por ID:";
             // 
@@ -136,10 +136,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(126, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(244, 33);
+            this.label3.Size = new System.Drawing.Size(245, 29);
             this.label3.TabIndex = 113;
             this.label3.Text = "Listado de Usuarios";
             // 
@@ -147,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(483, 611);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -18,10 +18,15 @@ namespace Capa_de_Presentacion
         }
 
         clsCx Cx = new clsCx();
+        public void limpiar()
+        {
+            txttotalG.Clear();
+            dataGridView1.Rows.Clear();
+        }
+
         public void cargardata()
         {
             double total = 0;
-            limpiar();
             //declaramos la cadena  de conexion
             string cadenaconexion = Cx.conet;
             //variable de tipo Sqlconnection
@@ -35,13 +40,14 @@ namespace Capa_de_Presentacion
             if (textBox1.Text != "")
             {
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "select * from AlineamientoYBalanceo where vehiculo like '%" + textBox1.Text.ToUpper() + "%' and fecha = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+                comando.CommandText = "select * from Cliente where Nombres like '%" + textBox1.Text.ToUpper() + "%' or Apellidos like '%" + textBox1.Text.ToUpper() + "%'  and ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
                 comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             }
             else
             {
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "select * from AlineamientoYBalanceo";
+                comando.CommandText = "select * from Cliente where ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+                comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             }
             //especificamos que es de tipo Text
             comando.CommandType = CommandType.Text;
@@ -49,6 +55,7 @@ namespace Capa_de_Presentacion
             conexion.Open();
             //limpiamos los renglones de la datagridview
             dataGridView1.Rows.Clear();
+            txttotalG.Text = Convert.ToString(0);
             //a la variable DataReader asignamos  el la variable de tipo SqlCommand
             dr = comando.ExecuteReader();
             while (dr.Read())
@@ -58,15 +65,15 @@ namespace Capa_de_Presentacion
 
                 // especificamos en que fila se mostrará cada registro
                 // nombredeldatagrid.filas[numerodefila].celdas[nombrdelacelda].valor=\
-                dataGridView1.Rows[renglon].Cells["id"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("id")));
-                dataGridView1.Rows[renglon].Cells["tipoDeTrabajo"].Value = dr.GetString(dr.GetOrdinal("tipoDeTrabajo"));
-                dataGridView1.Rows[renglon].Cells["vehiculo"].Value = dr.GetString(dr.GetOrdinal("vehiculo"));
-                dataGridView1.Rows[renglon].Cells["AroGoma"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("AroGoma")));
-                dataGridView1.Rows[renglon].Cells["precio"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("precio")));
-                dataGridView1.Rows[renglon].Cells["nota"].Value = dr.GetString(dr.GetOrdinal("nota"));
-                dataGridView1.Rows[renglon].Cells["fecha"].Value = dr.GetDateTime(dr.GetOrdinal("fecha"));
+                dataGridView1.Rows[renglon].Cells["id"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("IdCliente")));
+                dataGridView1.Rows[renglon].Cells["tipopago"].Value = dr.GetString(dr.GetOrdinal("TipoPago"));
+                dataGridView1.Rows[renglon].Cells["nombre"].Value = dr.GetString(dr.GetOrdinal("Nombres"));
+                dataGridView1.Rows[renglon].Cells["apellido"].Value = dr.GetString(dr.GetOrdinal("Apellidos"));
+                dataGridView1.Rows[renglon].Cells["Tiempo"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("tiempo")));
+                dataGridView1.Rows[renglon].Cells["pago"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("monto")));
+                dataGridView1.Rows[renglon].Cells["fecha"].Value = dr.GetDateTime(dr.GetOrdinal("ProximaFechaPago"));
 
-                total += Convert.ToDouble(dataGridView1.Rows[renglon].Cells["precio"].Value);
+                total += Convert.ToDouble(dataGridView1.Rows[renglon].Cells["pago"].Value);
                 txttotalG.Text = Convert.ToString(total);
             }
             conexion.Close();
@@ -74,19 +81,15 @@ namespace Capa_de_Presentacion
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            var marca = dataGridView1.CurrentRow.Cells["vehiculo"].Value.ToString();
-            string cadena = marca;
-            char delimitador = ' ';
-            string[] valores = cadena.Split(delimitador);
+            Program.nombre4 = dataGridView1.CurrentRow.Cells["nombre"].Value.ToString();
+            Program.apellido4 = dataGridView1.CurrentRow.Cells["apellido"].Value.ToString();
+            Program.tipopago4 = dataGridView1.CurrentRow.Cells["tipopago"].Value.ToString();
+            Program.fecha4 = dataGridView1.CurrentRow.Cells["fecha"].Value.ToString();
+            Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["pago"].Value.ToString());
+            Program.Id4 = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
 
-            Program.descripcion = dataGridView1.CurrentRow.Cells["tipoDeTrabajo"].Value.ToString();
-            Program.marca = valores[0].Trim();
-            Program.modelo = valores[1].Trim();
-            Program.Aros = dataGridView1.CurrentRow.Cells["AroGoma"].Value.ToString();
-            Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["precio"].Value.ToString());
-            Program.nota = dataGridView1.CurrentRow.Cells["nota"].Value.ToString();
-            Program.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
-            this.Close();
+            frmAlineamiento pago = new frmAlineamiento();
+            pago.Show();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -102,25 +105,20 @@ namespace Capa_de_Presentacion
         }
         public void cargar_combo_Tipo(ComboBox tipo)
         {
-            SqlCommand cm = new SqlCommand("CARGARcomboTipotrabajo", Cx.conexion);
+            SqlCommand cm = new SqlCommand("CARGARcomboPago", Cx.conexion);
             cm.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cm);
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            tipo.DisplayMember = "descripcion";
-            tipo.ValueMember = "id";
-            tipo.DataSource = dt;
-        }
-        public void limpiar()
-        {
-            dataGridView1.Rows.Clear();
+            cbtipo.DisplayMember = "descripcion";
+            cbtipo.ValueMember = "id";
+            cbtipo.DataSource = dt;
         }
 
         public void buscarporfecha()
         {
             double total = 0;
-            limpiar();
             //declaramos la cadena  de conexion
             string cadenaconexion = Cx.conet;
             //variable de tipo Sqlconnection
@@ -132,7 +130,7 @@ namespace Capa_de_Presentacion
             con.ConnectionString = cadenaconexion;
             comando.Connection = con;
             //declaramos el comando para realizar la busqueda
-            comando.CommandText = "select * from AlineamientoYBalanceo where fecha = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+            comando.CommandText = "select * from Cliente where ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
             comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             //especificamos que es de tipo Text
             comando.CommandType = CommandType.Text;
@@ -140,6 +138,7 @@ namespace Capa_de_Presentacion
             con.Open();
             //limpiamos los renglones de la datagridview
             dataGridView1.Rows.Clear();
+            txttotalG.Text = Convert.ToString(0);
             //a la variable DataReader asignamos  el la variable de tipo SqlCommand
             dr = comando.ExecuteReader();
             while (dr.Read())
@@ -149,21 +148,22 @@ namespace Capa_de_Presentacion
 
                 // especificamos en que fila se mostrará cada registro
                 // nombredeldatagrid.filas[numerodefila].celdas[nombrdelacelda].valor=\
-                dataGridView1.Rows[renglon].Cells["id"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("id")));
-                dataGridView1.Rows[renglon].Cells["tipoDeTrabajo"].Value = dr.GetString(dr.GetOrdinal("tipoDeTrabajo"));
-                dataGridView1.Rows[renglon].Cells["vehiculo"].Value = dr.GetString(dr.GetOrdinal("vehiculo"));
-                dataGridView1.Rows[renglon].Cells["AroGoma"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("AroGoma")));
-                dataGridView1.Rows[renglon].Cells["precio"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("precio")));
-                dataGridView1.Rows[renglon].Cells["nota"].Value = dr.GetString(dr.GetOrdinal("nota"));
-                dataGridView1.Rows[renglon].Cells["fecha"].Value = dr.GetDateTime(dr.GetOrdinal("fecha"));
+                dataGridView1.Rows[renglon].Cells["id"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("IdCliente")));
+                dataGridView1.Rows[renglon].Cells["tipopago"].Value = dr.GetString(dr.GetOrdinal("TipoPago"));
+                dataGridView1.Rows[renglon].Cells["nombre"].Value = dr.GetString(dr.GetOrdinal("Nombres"));
+                dataGridView1.Rows[renglon].Cells["apellido"].Value = dr.GetString(dr.GetOrdinal("Apellidos"));
+                dataGridView1.Rows[renglon].Cells["Tiempo"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("tiempo")));
+                dataGridView1.Rows[renglon].Cells["pago"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("monto")));
+                dataGridView1.Rows[renglon].Cells["fecha"].Value = dr.GetDateTime(dr.GetOrdinal("ProximaFechaPago"));
 
-                total += Convert.ToDouble(dataGridView1.Rows[renglon].Cells["precio"].Value);
+                total += Convert.ToDouble(dataGridView1.Rows[renglon].Cells["pago"].Value);
                 txttotalG.Text = Convert.ToString(total);
             }
             con.Close();
         }
         private void frmBuscarAlineacionyBalanceo_Load(object sender, EventArgs e)
         {
+            txttotalG.Text = Convert.ToString(0);
             cargardata();
             cargar_combo_Tipo(cbtipo);
             cbtipo.SelectedIndex = 0;
@@ -210,7 +210,7 @@ namespace Capa_de_Presentacion
                 doc.Add(new Paragraph(chunk));
                 doc.Add(new Paragraph(ubicado, FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.NORMAL)));
                 doc.Add(new Paragraph("                       "));
-                doc.Add(new Paragraph("Reporte de Listado de Alineaciones y Balanceos                       "));
+                doc.Add(new Paragraph("Reporte de Listado de Pagos Pendientes                       "));
                 doc.Add(new Paragraph("                       "));
                 GenerarDocumento(doc);
                 doc.AddCreationDate();
@@ -281,7 +281,7 @@ namespace Capa_de_Presentacion
             conexion.ConnectionString = cadenaconexion;
             comando.Connection = conexion;
             //declaramos el comando para realizar la busqueda
-            comando.CommandText = "select * from AlineamientoYBalanceo where tipoDeTrabajo like '%" + cbtipo.Text + "%' AND fecha = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+            comando.CommandText = "select * from Cliente where TipoPago like '%" + cbtipo.Text + "%' AND ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
             comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             //especificamos que es de tipo Text
             comando.CommandType = CommandType.Text;
@@ -289,6 +289,7 @@ namespace Capa_de_Presentacion
             conexion.Open();
             //limpiamos los renglones de la datagridview
             dataGridView1.Rows.Clear();
+            txttotalG.Text = Convert.ToString(0);
             //a la variable DataReader asignamos  el la variable de tipo SqlCommand
             dr = comando.ExecuteReader();
             while (dr.Read())
@@ -298,15 +299,15 @@ namespace Capa_de_Presentacion
 
                 // especificamos en que fila se mostrará cada registro
                 // nombredeldatagrid.filas[numerodefila].celdas[nombrdelacelda].valor=\
-                dataGridView1.Rows[renglon].Cells["id"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("id")));
-                dataGridView1.Rows[renglon].Cells["tipoDeTrabajo"].Value = dr.GetString(dr.GetOrdinal("tipoDeTrabajo"));
-                dataGridView1.Rows[renglon].Cells["vehiculo"].Value = dr.GetString(dr.GetOrdinal("vehiculo"));
-                dataGridView1.Rows[renglon].Cells["AroGoma"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("AroGoma")));
-                dataGridView1.Rows[renglon].Cells["precio"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("precio")));
-                dataGridView1.Rows[renglon].Cells["nota"].Value = dr.GetString(dr.GetOrdinal("nota"));
-                dataGridView1.Rows[renglon].Cells["fecha"].Value = dr.GetDateTime(dr.GetOrdinal("fecha"));
+                dataGridView1.Rows[renglon].Cells["id"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("IdCliente")));
+                dataGridView1.Rows[renglon].Cells["tipopago"].Value = dr.GetString(dr.GetOrdinal("TipoPago"));
+                dataGridView1.Rows[renglon].Cells["nombre"].Value = dr.GetString(dr.GetOrdinal("Nombres"));
+                dataGridView1.Rows[renglon].Cells["apellido"].Value = dr.GetString(dr.GetOrdinal("Apellidos"));
+                dataGridView1.Rows[renglon].Cells["Tiempo"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("tiempo")));
+                dataGridView1.Rows[renglon].Cells["pago"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("monto")));
+                dataGridView1.Rows[renglon].Cells["fecha"].Value = dr.GetDateTime(dr.GetOrdinal("ProximaFechaPago"));
 
-                total += Convert.ToDouble(dataGridView1.Rows[renglon].Cells["precio"].Value);
+                total += Convert.ToDouble(dataGridView1.Rows[renglon].Cells["pago"].Value);
                 txttotalG.Text = Convert.ToString(total);
             }
             conexion.Close();

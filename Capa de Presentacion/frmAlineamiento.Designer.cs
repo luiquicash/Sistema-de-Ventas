@@ -33,17 +33,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cbtipo = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtnota = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtaros = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtmodelo = new System.Windows.Forms.TextBox();
+            this.txtapellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnpagar = new System.Windows.Forms.Button();
             this.lblTel2 = new System.Windows.Forms.Label();
@@ -58,8 +53,8 @@
             this.txtidEmp = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblidAliBal = new System.Windows.Forms.Label();
+            this.txttipopago = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -88,126 +83,67 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cbtipo);
+            this.groupBox4.Controls.Add(this.txttipopago);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.txtnota);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.txtaros);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.txtmodelo);
+            this.groupBox4.Controls.Add(this.txtapellido);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.txtTotal);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.txtMarca);
+            this.groupBox4.Controls.Add(this.txtnombre);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(13, 240);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(626, 290);
+            this.groupBox4.Size = new System.Drawing.Size(626, 148);
             this.groupBox4.TabIndex = 37;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vehiculo";
             // 
-            // cbtipo
-            // 
-            this.cbtipo.BackColor = System.Drawing.Color.White;
-            this.cbtipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtipo.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.cbtipo.FormattingEnabled = true;
-            this.cbtipo.Location = new System.Drawing.Point(162, 90);
-            this.cbtipo.Margin = new System.Windows.Forms.Padding(4);
-            this.cbtipo.Name = "cbtipo";
-            this.cbtipo.Size = new System.Drawing.Size(210, 24);
-            this.cbtipo.TabIndex = 90;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.SeaGreen;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(38, 93);
+            this.label11.Location = new System.Drawing.Point(11, 93);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 17);
+            this.label11.Size = new System.Drawing.Size(97, 17);
             this.label11.TabIndex = 91;
-            this.label11.Text = "Tipo de trabajo:";
+            this.label11.Text = "Tipo de Pago:";
             // 
-            // txtnota
+            // txtapellido
             // 
-            this.txtnota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtnota.Location = new System.Drawing.Point(60, 148);
-            this.txtnota.Margin = new System.Windows.Forms.Padding(4);
-            this.txtnota.Multiline = true;
-            this.txtnota.Name = "txtnota";
-            this.txtnota.Size = new System.Drawing.Size(536, 107);
-            this.txtnota.TabIndex = 18;
-            this.txtnota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 148);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Nota:";
-            // 
-            // txtaros
-            // 
-            this.txtaros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtaros.Location = new System.Drawing.Point(535, 32);
-            this.txtaros.Margin = new System.Windows.Forms.Padding(4);
-            this.txtaros.Name = "txtaros";
-            this.txtaros.Size = new System.Drawing.Size(77, 25);
-            this.txtaros.TabIndex = 15;
-            this.txtaros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtaros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmodelo_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(397, 34);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 18);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Gomas Aros No.:";
-            // 
-            // txtmodelo
-            // 
-            this.txtmodelo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtmodelo.Location = new System.Drawing.Point(283, 32);
-            this.txtmodelo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtmodelo.Name = "txtmodelo";
-            this.txtmodelo.Size = new System.Drawing.Size(89, 25);
-            this.txtmodelo.TabIndex = 13;
-            this.txtmodelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtmodelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmodelo_KeyPress);
+            this.txtapellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtapellido.Location = new System.Drawing.Point(391, 34);
+            this.txtapellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtapellido.Name = "txtapellido";
+            this.txtapellido.ReadOnly = true;
+            this.txtapellido.Size = new System.Drawing.Size(205, 25);
+            this.txtapellido.TabIndex = 13;
+            this.txtapellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtapellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmodelo_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(239, 34);
+            this.label2.Location = new System.Drawing.Point(309, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 18);
+            this.label2.Size = new System.Drawing.Size(63, 18);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Año:";
+            this.label2.Text = "Apellido:";
             // 
             // txtTotal
             // 
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Location = new System.Drawing.Point(472, 90);
+            this.txtTotal.Location = new System.Drawing.Point(445, 90);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(87, 25);
+            this.txtTotal.Size = new System.Drawing.Size(123, 25);
             this.txtTotal.TabIndex = 7;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmodelo_KeyPress);
@@ -216,23 +152,24 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(407, 92);
+            this.label9.Location = new System.Drawing.Point(309, 92);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 18);
+            this.label9.Size = new System.Drawing.Size(110, 18);
             this.label9.TabIndex = 6;
-            this.label9.Text = "Precio:";
+            this.label9.Text = "Monto a Pagar:";
             // 
-            // txtMarca
+            // txtnombre
             // 
-            this.txtMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMarca.Location = new System.Drawing.Point(68, 32);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(156, 25);
-            this.txtMarca.TabIndex = 3;
-            this.txtMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarca_KeyPress);
+            this.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtnombre.Location = new System.Drawing.Point(95, 32);
+            this.txtnombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.ReadOnly = true;
+            this.txtnombre.Size = new System.Drawing.Size(201, 25);
+            this.txtnombre.TabIndex = 3;
+            this.txtnombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarca_KeyPress);
             // 
             // label7
             // 
@@ -241,15 +178,15 @@
             this.label7.Location = new System.Drawing.Point(11, 34);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 18);
+            this.label7.Size = new System.Drawing.Size(66, 18);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Marca:";
+            this.label7.Text = "Nombre:";
             // 
             // btnpagar
             // 
             this.btnpagar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnpagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpagar.Location = new System.Drawing.Point(551, 551);
+            this.btnpagar.Location = new System.Drawing.Point(551, 454);
             this.btnpagar.Margin = new System.Windows.Forms.Padding(4);
             this.btnpagar.Name = "btnpagar";
             this.btnpagar.Size = new System.Drawing.Size(88, 46);
@@ -361,7 +298,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.SpringGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(551, 551);
+            this.button1.Location = new System.Drawing.Point(551, 454);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 46);
@@ -383,18 +320,6 @@
             this.label18.Text = "X";
             this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(337, 188);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(201, 17);
-            this.linkLabel1.TabIndex = 92;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Lista de Alineacion y Balanceo";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // lblidAliBal
             // 
             this.lblidAliBal.AutoSize = true;
@@ -405,14 +330,24 @@
             this.lblidAliBal.Text = "idAliBal";
             this.lblidAliBal.Visible = false;
             // 
+            // txttipopago
+            // 
+            this.txttipopago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txttipopago.Location = new System.Drawing.Point(124, 90);
+            this.txttipopago.Margin = new System.Windows.Forms.Padding(4);
+            this.txttipopago.Name = "txttipopago";
+            this.txttipopago.ReadOnly = true;
+            this.txttipopago.Size = new System.Drawing.Size(173, 25);
+            this.txttipopago.TabIndex = 92;
+            this.txttipopago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmAlineamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
-            this.ClientSize = new System.Drawing.Size(655, 615);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(655, 513);
             this.Controls.Add(this.lblidAliBal);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtidEmp);
@@ -450,14 +385,10 @@
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.TextBox txtTotal;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox txtMarca;
+		private System.Windows.Forms.TextBox txtnombre;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox txtaros;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox txtmodelo;
+		private System.Windows.Forms.TextBox txtapellido;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox txtnota;
-		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnpagar;
 		public System.Windows.Forms.Label lblTel2;
         public System.Windows.Forms.Label lbltel;
@@ -465,7 +396,6 @@
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label lbldir;
         public System.Windows.Forms.Label lblLogo;
-        public System.Windows.Forms.ComboBox cbtipo;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label lblrnc;
         public System.Windows.Forms.Label lblCorreo;
@@ -473,7 +403,7 @@
         public System.Windows.Forms.TextBox txtidEmp;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         public System.Windows.Forms.Label lblidAliBal;
+        private System.Windows.Forms.TextBox txttipopago;
     }
 }

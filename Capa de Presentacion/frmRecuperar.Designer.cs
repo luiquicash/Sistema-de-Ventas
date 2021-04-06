@@ -172,8 +172,9 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(104, 205);
+            this.panel1.Location = new System.Drawing.Point(107, 205);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(327, 146);
             this.panel1.TabIndex = 84;
@@ -184,7 +185,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(87, 47);
+            this.button1.Location = new System.Drawing.Point(87, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 36);
             this.button1.TabIndex = 0;
@@ -196,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaGreen;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(550, 397);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtUsuarioCed);

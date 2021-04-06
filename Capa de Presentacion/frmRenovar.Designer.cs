@@ -61,7 +61,7 @@ namespace Capa_de_Presentacion
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(175, 53);
+            this.label11.Location = new System.Drawing.Point(192, 51);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(214, 29);
             this.label11.TabIndex = 87;
@@ -95,7 +95,7 @@ namespace Capa_de_Presentacion
             this.btnGrabar.ForeColor = System.Drawing.Color.Black;
             this.btnGrabar.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_guardar;
             this.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrabar.Location = new System.Drawing.Point(197, 184);
+            this.btnGrabar.Location = new System.Drawing.Point(209, 183);
             this.btnGrabar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(143, 33);
@@ -109,6 +109,7 @@ namespace Capa_de_Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(555, 252);
             this.Controls.Add(this.txtlicencia);
             this.Controls.Add(this.label6);

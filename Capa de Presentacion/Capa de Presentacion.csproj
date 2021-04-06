@@ -50,7 +50,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>CefletCepedaImporticon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.10.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -95,6 +96,18 @@
     <Compile Include="cuadredecaja.Designer.cs">
       <DependentUpon>cuadredecaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAlineamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlineamiento.Designer.cs">
+      <DependentUpon>frmAlineamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarAlineacionyBalanceo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarAlineacionyBalanceo.Designer.cs">
+      <DependentUpon>frmBuscarAlineacionyBalanceo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCambiarUsu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,12 +119,6 @@
     </Compile>
     <Compile Include="frmLimitantesNCF.Designer.cs">
       <DependentUpon>frmLimitantesNCF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBuscarAlineacionyBalanceo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscarAlineacionyBalanceo.Designer.cs">
-      <DependentUpon>frmBuscarAlineacionyBalanceo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoUsuario.cs">
       <SubType>Form</SubType>
@@ -227,12 +234,6 @@
     <Compile Include="FrmRegistroVentas.Designer.cs">
       <DependentUpon>FrmRegistroVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAlineamiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAlineamiento.Designer.cs">
-      <DependentUpon>frmAlineamiento.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmRenovar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,14 +253,17 @@
     <EmbeddedResource Include="cuadredecaja.resx">
       <DependentUpon>cuadredecaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAlineamiento.resx">
+      <DependentUpon>frmAlineamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarAlineacionyBalanceo.resx">
+      <DependentUpon>frmBuscarAlineacionyBalanceo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarUsu.resx">
       <DependentUpon>frmCambiarUsu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLimitantesNCF.resx">
       <DependentUpon>frmLimitantesNCF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarAlineacionyBalanceo.resx">
-      <DependentUpon>frmBuscarAlineacionyBalanceo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoProductos.aa.resx">
       <DependentUpon>FrmListadoProductos.cs</DependentUpon>
@@ -324,9 +328,6 @@
     <EmbeddedResource Include="FrmRegistroVentas.resx">
       <DependentUpon>FrmRegistroVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAlineamiento.resx">
-      <DependentUpon>frmAlineamiento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmRenovar.resx">
       <DependentUpon>frmRenovar.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,7 +365,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CefletCepedaImporticon.ico" />
     <Content Include="Resources\1button.png" />
     <Content Include="Resources\1button_click.png" />
     <Content Include="Resources\1button_hover.png" />

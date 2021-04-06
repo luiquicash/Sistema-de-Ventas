@@ -27,7 +27,7 @@ namespace Capa_de_Presentacion
                 btnProductos.Visible = true;
                 btnClientes.Visible = false;
                 btnVentas.Visible = false;
-                btnAyB.Visible = false;
+                btnpago.Visible = false;
 
                 button5.Visible = false;
                 button2.Visible = false;
@@ -44,7 +44,7 @@ namespace Capa_de_Presentacion
                 btnProductos.Visible = false;
                 btnClientes.Visible = false;
                 btnVentas.Visible = false;
-                btnAyB.Visible = false;
+                btnpago.Visible = false;
 
                 button5.Visible = true;
                 button2.Visible = false;
@@ -61,7 +61,7 @@ namespace Capa_de_Presentacion
                 btnProductos.Visible = false;
                 btnClientes.Visible = false;
                 btnVentas.Visible = false;
-                btnAyB.Visible = false;
+                btnpago.Visible = false;
 
                 button5.Visible = false;
                 button2.Visible = true;
@@ -80,7 +80,7 @@ namespace Capa_de_Presentacion
                     btnProductos.Visible = true;
                     btnClientes.Visible = true;
                     btnVentas.Visible = true;
-                    btnAyB.Visible = true;
+                    btnpago.Visible = true;
 
                     button5.Visible = false;
                     button2.Visible = false;
@@ -96,7 +96,7 @@ namespace Capa_de_Presentacion
                     btnProductos.Visible = true;
                     btnClientes.Visible = true;
                     btnVentas.Visible = true;
-                    btnAyB.Visible = true;
+                    btnpago.Visible = true;
 
                     button5.Visible = true;
                     button2.Visible = true;
@@ -204,8 +204,6 @@ namespace Capa_de_Presentacion
                 {
                     V.txtPVenta.Enabled = false;
                     V.txtIgv.Enabled = false;
-                    V.txtDivisor.Enabled = false;
-                    V.txtPorcentaje.Enabled = false;
                 }
                 Program.abierto = true;
                 V.Show();
@@ -454,15 +452,7 @@ namespace Capa_de_Presentacion
         {
             if (Program.abierto == false)
             {
-                frmAlineamiento V = new frmAlineamiento();
-                V.txtUsu.Text = lblUsuario.Text;
-                V.txtidEmp.Text = Convert.ToString(Program.IdEmpleadoLogueado);
-                V.lblLogo.Text = lblLogo.Text;
-                V.lbldir.Text = lblDir.Text;
-                V.lbltel1.Text = lblTel1.Text;
-                V.lbltel.Text = lblTel2.Text;
-                V.lblCorreo.Text = lblCorreo.Text;
-                V.lblrnc.Text = lblrnc.Text;
+                FrmBuscarAlineacionyBalanceo V = new FrmBuscarAlineacionyBalanceo();
                 Program.abierto = true;
                 V.Show();
             }

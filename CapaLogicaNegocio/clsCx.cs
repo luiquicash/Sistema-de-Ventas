@@ -4,7 +4,7 @@ namespace CapaLogicaNegocio
 {
     public class clsCx
     {
-        public string conet = "Data Source=.;Initial Catalog=SalesSystem;Integrated Security=True";
-        public SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SalesSystem;Integrated Security=True");
+        public string conet = "Data Source=.;Initial Catalog=SalesSystemGym;Integrated Security=True";
+        public SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SalesSystemGym;Integrated Security=True");
     }
 }
