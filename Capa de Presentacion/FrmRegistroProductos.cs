@@ -19,22 +19,8 @@ namespace Capa_de_Presentacion
         private void FrmRegistroProductos_Load(object sender, EventArgs e)
         {
             ListarElementos();
-            cargar_combo_Tipo(cbtipo);
-            cbtipo.SelectedIndex = 0;
         }
 
-        public void cargar_combo_Tipo(ComboBox tipo)
-        {
-            SqlCommand cm = new SqlCommand("CARGARcomboTipogoma", Cx.conexion);
-            cm.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cm);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            tipo.DisplayMember = "descripcion";
-            tipo.ValueMember = "id";
-            tipo.DataSource = dt;
-        }
         public void ListarElementos()
         {
             if (IdC.Text.Trim() != "")
@@ -97,7 +83,6 @@ namespace Capa_de_Presentacion
                                             cmd.Parameters.Add("@PrecioCompra", SqlDbType.Decimal).Value = txtPCompra.Text;
                                             cmd.Parameters.Add("@PrecioVenta", SqlDbType.Decimal).Value = txtPVenta.Text;
                                             cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = txtitbis.Text;
-                                            cmd.Parameters.Add("@TipoGoma", SqlDbType.NVarChar).Value = cbtipo.Text;
                                             cmd.Parameters.Add("@FechaVencimiento", SqlDbType.Date).Value = dateTimePicker1.Text;
                                             cmd.Parameters.Add("@FechaModificacion", SqlDbType.Date).Value = dateTimePicker1.Text;
                                             cmd.Parameters.Add("@Pmax", SqlDbType.Decimal).Value = 0;
@@ -215,7 +200,6 @@ namespace Capa_de_Presentacion
                                         cmd.Parameters.Add("@PrecioCompra", SqlDbType.Decimal).Value = txtPCompra.Text;
                                         cmd.Parameters.Add("@PrecioVenta", SqlDbType.Decimal).Value = txtPVenta.Text;
                                         cmd.Parameters.Add("@itbis", SqlDbType.Decimal).Value = txtitbis.Text;
-                                        cmd.Parameters.Add("@TipoGoma", SqlDbType.NVarChar).Value = cbtipo.Text;
                                         cmd.Parameters.Add("@FechaModificacion", SqlDbType.Date).Value = dateTimePicker1.Text;
                                         cmd.Parameters.Add("@Pmax", SqlDbType.Decimal).Value = 0;
                                         cmd.Parameters.Add("@Pmin", SqlDbType.Decimal).Value = 0;

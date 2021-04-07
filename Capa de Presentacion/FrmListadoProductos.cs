@@ -132,13 +132,13 @@ namespace Capa_de_Presentacion
                 if (palabra != null)
                 {
                     //declaramos el comando para realizar la busqueda
-                    comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma," +
+                    comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis," +
                         "Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Nombre LIKE '%" + palabra + "%' OR Marca LIKE '%" + palabra + "%'";
                 }
                 else
                 {
                     //declaramos el comando para realizar la busqueda
-                    comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma," +
+                    comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis," +
                         "Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto";
                 }
 
@@ -168,7 +168,6 @@ namespace Capa_de_Presentacion
                     dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                     dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                     dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                     compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
                     ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
@@ -225,7 +224,6 @@ namespace Capa_de_Presentacion
                 P.txtPVenta.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                 P.txtStock.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
                 P.txtitbis.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                P.cbtipo.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
                 P.dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value.ToString());
                 P.button1.Visible = true;
                 P.btnGuardar.Visible = false;
@@ -263,7 +261,6 @@ namespace Capa_de_Presentacion
             Program.Stock = Convert.ToInt32(dataGridView1.CurrentRow.Cells["cantidad"].Value.ToString());
             Program.IdCategoria = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdC"].Value.ToString());
             Program.itbis = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["itbis"].Value.ToString());
-            Program.tipo = dataGridView1.CurrentRow.Cells["tipoGOma"].Value.ToString();
             this.Close();
         }
         private void label2_Click(object sender, EventArgs e)
@@ -286,7 +283,7 @@ namespace Capa_de_Presentacion
                 con.ConnectionString = cadenaconexion;
                 comando.Connection = con;
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock=0";
+                comando.CommandText = "	Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock=0";
                 //especificamos que es de tipo Text
                 comando.CommandType = CommandType.Text;
                 //se abre la conexion
@@ -312,7 +309,6 @@ namespace Capa_de_Presentacion
                     dataGridView1.Rows[renglon].Cells[6].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("Stock")));
                     dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                     dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                     compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
                     ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
@@ -344,7 +340,7 @@ namespace Capa_de_Presentacion
                 con.ConnectionString = cadenaconexion;
                 comando.Connection = con;
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock >4  And Stock <11 ";
+                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock >4  And Stock <11 ";
                 //especificamos que es de tipo Text
                 comando.CommandType = CommandType.Text;
                 //se abre la conexion
@@ -371,7 +367,6 @@ namespace Capa_de_Presentacion
                     dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                     dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                     dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                     compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
                     ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
@@ -404,7 +399,7 @@ namespace Capa_de_Presentacion
                 con.ConnectionString = cadenaconexion;
                 comando.Connection = con;
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock >10 ";
+                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock >10 ";
                 //especificamos que es de tipo Text
                 comando.CommandType = CommandType.Text;
                 //se abre la conexion
@@ -431,7 +426,6 @@ namespace Capa_de_Presentacion
                     dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                     dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                     dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                     compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
                     ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
@@ -463,7 +457,7 @@ namespace Capa_de_Presentacion
                 con.ConnectionString = cadenaconexion;
                 comando.Connection = con;
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock >0 and Stock <5 ";
+                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where Stock >0 and Stock <5 ";
                 //especificamos que es de tipo Text
                 comando.CommandType = CommandType.Text;
                 //se abre la conexion
@@ -490,7 +484,6 @@ namespace Capa_de_Presentacion
                     dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                     dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                     dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                     compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
                     ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
@@ -528,7 +521,7 @@ namespace Capa_de_Presentacion
                 con.ConnectionString = cadenaconexion;
                 comando.Connection = con;
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,tipoGOma,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where IdCategoria=" + id.Text;
+                comando.CommandText = "Select IdProducto,IdCategoria,Nombre,Marca,PrecioCompra,PrecioVenta,Stock,FechaVencimiento,FechaModificacion,itbis,Pmax =COALESCE(dbo.Producto.Pmax,0),Pmin =COALESCE(dbo.Producto.Pmin,0) From Producto Where IdCategoria=" + id.Text;
                 //especificamos que es de tipo Text
                 comando.CommandType = CommandType.Text;
                 //se abre la conexion
@@ -555,7 +548,6 @@ namespace Capa_de_Presentacion
                     dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                     dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                     dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                    dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                     compras += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[4].Value);
                     ventas += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[5].Value);
@@ -844,7 +836,6 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                 dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                 dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                 totalproducto += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[6].Value);
                 lbltotalproductos.Text = Convert.ToString(totalproducto);
@@ -902,7 +893,6 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows[renglon].Cells[7].Value = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                 dataGridView1.Rows[renglon].Cells[8].Value = dr.GetDateTime(dr.GetOrdinal("FechaModificacion"));
                 dataGridView1.Rows[renglon].Cells[9].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("itbis")));
-                dataGridView1.Rows[renglon].Cells[10].Value = dr.GetString(dr.GetOrdinal("tipoGOma"));
 
                 totalproducto += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells[6].Value);
                 lbltotalproductos.Text = Convert.ToString(totalproducto);

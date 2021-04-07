@@ -33,6 +33,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txttipopago = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtapellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.lblidAliBal = new System.Windows.Forms.Label();
-            this.txttipopago = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vehiculo";
             // 
+            // txttipopago
+            // 
+            this.txttipopago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txttipopago.Location = new System.Drawing.Point(124, 90);
+            this.txttipopago.Margin = new System.Windows.Forms.Padding(4);
+            this.txttipopago.Name = "txttipopago";
+            this.txttipopago.ReadOnly = true;
+            this.txttipopago.Size = new System.Drawing.Size(177, 25);
+            this.txttipopago.TabIndex = 92;
+            this.txttipopago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -140,7 +151,7 @@
             // txtTotal
             // 
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Location = new System.Drawing.Point(445, 90);
+            this.txtTotal.Location = new System.Drawing.Point(473, 89);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(123, 25);
@@ -166,7 +177,7 @@
             this.txtnombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.ReadOnly = true;
-            this.txtnombre.Size = new System.Drawing.Size(201, 25);
+            this.txtnombre.Size = new System.Drawing.Size(206, 25);
             this.txtnombre.TabIndex = 3;
             this.txtnombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarca_KeyPress);
@@ -329,17 +340,6 @@
             this.lblidAliBal.TabIndex = 93;
             this.lblidAliBal.Text = "idAliBal";
             this.lblidAliBal.Visible = false;
-            // 
-            // txttipopago
-            // 
-            this.txttipopago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txttipopago.Location = new System.Drawing.Point(124, 90);
-            this.txttipopago.Margin = new System.Windows.Forms.Padding(4);
-            this.txttipopago.Name = "txttipopago";
-            this.txttipopago.ReadOnly = true;
-            this.txttipopago.Size = new System.Drawing.Size(173, 25);
-            this.txttipopago.TabIndex = 92;
-            this.txttipopago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmAlineamiento
             // 

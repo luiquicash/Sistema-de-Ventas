@@ -28,7 +28,6 @@ namespace Capa_de_Presentacion
             button1.Enabled = false;
             if (Program.CargoEmpleadoLogueado != "Administrador")
             {
-
                 btnActualizar.Enabled = false;
             }
         }
@@ -106,7 +105,7 @@ namespace Capa_de_Presentacion
                 FrmC.txtNombres.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 FrmC.txtDireccion.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                 FrmC.txtTelefono.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                FrmC.txtDni.Focus();
+                FrmC.txtDni.Enabled=false;
                 FrmC.button3.Visible = true;
                 FrmC.label11.Text = "Actualizar Cliente";
                 FrmC.Show();
@@ -145,7 +144,6 @@ namespace Capa_de_Presentacion
                         dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][3].ToString();
                         dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][4].ToString();
                         dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][5].ToString();
-                        dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][5].ToString();
                     }
                     dataGridView1.ClearSelection();
                     timer1.Stop();
@@ -202,7 +200,6 @@ namespace Capa_de_Presentacion
                         FrmC.txtNombres.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                         FrmC.txtDireccion.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                         FrmC.txtTelefono.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                        FrmC.txtmonto.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
                         FrmC.txtDni.Focus();
                         FrmC.Show();
                         if (dataGridView1.SelectedRows.Count > 0)
@@ -226,7 +223,7 @@ namespace Capa_de_Presentacion
             Program.cedula = dataGridView2.CurrentRow.Cells[1].Value.ToString();
             apellido = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             nombre = dataGridView2.CurrentRow.Cells[3].Value.ToString();
-            Program.nombres = apellido + "," + nombre;
+            Program.nombres = nombre + " " + apellido;
             this.Close();
         }
 
@@ -272,7 +269,7 @@ namespace Capa_de_Presentacion
         {
             Program.abiertosecundarias = false;
             Program.abierto = false;
-            if (Program.CargoEmpleadoLogueado != "Administrador")
+            if (Program.CargoEmpleadoLogueado == "Administrador")
             {
                 btnActualizar.Enabled = false;
             }

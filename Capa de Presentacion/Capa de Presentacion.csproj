@@ -50,8 +50,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>gimnasio.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Capa_de_Presentacion.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.10.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -365,6 +367,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gimnasio.ico" />
     <Content Include="Resources\1button.png" />
     <Content Include="Resources\1button_click.png" />
     <Content Include="Resources\1button_hover.png" />

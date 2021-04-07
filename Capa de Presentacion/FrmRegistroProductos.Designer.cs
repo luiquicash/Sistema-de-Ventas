@@ -54,8 +54,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbtipo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -315,37 +313,12 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(239, 249);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 18);
-            this.label12.TabIndex = 79;
-            this.label12.Text = "Tipo Producto";
-            // 
-            // cbtipo
-            // 
-            this.cbtipo.BackColor = System.Drawing.Color.White;
-            this.cbtipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtipo.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbtipo.FormattingEnabled = true;
-            this.cbtipo.Location = new System.Drawing.Point(374, 248);
-            this.cbtipo.Margin = new System.Windows.Forms.Padding(4);
-            this.cbtipo.Name = "cbtipo";
-            this.cbtipo.Size = new System.Drawing.Size(126, 24);
-            this.cbtipo.TabIndex = 15;
-            // 
             // FrmRegistroProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(517, 428);
-            this.Controls.Add(this.cbtipo);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtitbis);
@@ -409,7 +382,5 @@
 		public System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label10;
 		public System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.ComboBox cbtipo;
     }
 }
