@@ -154,8 +154,9 @@ namespace Capa_de_Presentacion
                     {
                         cmd2.CommandType = CommandType.StoredProcedure;
 
+                        string idVenta = (Program.idcaja.ToString() + DateTime.Today.Second.ToString() + Program.IdEmpleadoLogueado.ToString());
                         //Tabla de pago
-                        cmd2.Parameters.Add("@IdVenta", SqlDbType.Int).Value = 0;
+                        cmd2.Parameters.Add("@IdVenta", SqlDbType.Int).Value = Convert.ToInt32(idVenta);
                         cmd2.Parameters.Add("@id_pago", SqlDbType.Int).Value = Program.idPago;
                         cmd2.Parameters.Add("@id_caja", SqlDbType.Int).Value = Program.idcaja;
                         cmd2.Parameters.Add("@monto", SqlDbType.Decimal).Value = Program.Caja;
