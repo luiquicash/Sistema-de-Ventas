@@ -873,6 +873,8 @@ namespace Capa_de_Presentacion
                     txtNCF.Text = LectorSecuencia.GetString(2);
                     secuencia = LectorSecuencia.GetInt32(3);
                     txtNCF.Text = txtNCF.Text + secuencia.ToString("00000000");
+
+                    chkComprobante.Checked = true;
                 }
                 else
                 {
