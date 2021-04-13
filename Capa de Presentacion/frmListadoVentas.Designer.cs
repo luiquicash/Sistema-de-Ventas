@@ -92,6 +92,7 @@
             this.combo_tipo_NCF = new System.Windows.Forms.ComboBox();
             this.cbtipodocumento = new System.Windows.Forms.CheckBox();
             this.vereliminadas = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -651,7 +652,7 @@
             this.panel2.Location = new System.Drawing.Point(912, 126);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(442, 471);
+            this.panel2.Size = new System.Drawing.Size(442, 462);
             this.panel2.TabIndex = 113;
             // 
             // dataGridView3
@@ -679,7 +680,7 @@
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(425, 464);
+            this.dataGridView3.Size = new System.Drawing.Size(425, 452);
             this.dataGridView3.TabIndex = 0;
             // 
             // CategoryOfProducts
@@ -789,12 +790,34 @@
             this.vereliminadas.UseVisualStyleBackColor = true;
             this.vereliminadas.CheckedChanged += new System.EventHandler(this.vereliminadas_CheckedChanged);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Image = global::Capa_de_Presentacion.Properties.Resources.icons8_reestablecer;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(955, 596);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 39);
+            this.button4.TabIndex = 123;
+            this.button4.Text = "Devolucion";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // frmListadoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1371, 690);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.vereliminadas);
             this.Controls.Add(this.cbtipodocumento);
             this.Controls.Add(this.combo_tipo_NCF);
@@ -905,5 +928,6 @@
         private System.Windows.Forms.ComboBox combo_tipo_NCF;
         private System.Windows.Forms.CheckBox cbtipodocumento;
         private System.Windows.Forms.CheckBox vereliminadas;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -21,6 +21,7 @@ namespace Capa_de_Presentacion
         private void frmListadoVentas_Load(object sender, EventArgs e)
         {
             button3.Enabled = false;
+            button4.Enabled = false;
             cargar_combo_NCF(combo_tipo_NCF);
             repetitivo();
             llenar_data("");
@@ -721,6 +722,7 @@ namespace Capa_de_Presentacion
                 if (Program.CargoEmpleadoLogueado == "Administrador")
                 {
                     button3.Enabled = true;
+                    button4.Enabled = true;
                 }
             }
         }
@@ -740,6 +742,73 @@ namespace Capa_de_Presentacion
                 repetitivo();
                 llenar_data("");
                 llenar_data_V();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            //devolucion de venta
+            if (DevComponents.DotNetBar.MessageBoxEx.Show("Nota: se devolveran todos los producto que contenga la venta y la misma se eliminara por completo del sistema" +
+                           "\n ¿Está Seguro que Desea hacer una devolucion de esta Venta? ", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                Program.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
+                Cx.conexion.Open();
+                string sql = "select DetalleVenta.Cantidad,DetalleVenta.IdProducto, Venta.TipoFactura,DetalleVenta.SubTotal,Caja.id_caja,Venta.Restante from DetalleVenta" +
+                    " inner join Venta on DetalleVenta.IdVenta= Venta.IdVenta inner join Caja on Caja.fecha=Venta.FechaVenta where DetalleVenta.IdVenta=" + Program.Id;
+                SqlCommand cmd1 = new SqlCommand(sql, Cx.conexion);
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd1);
+                da.Fill(dt);
+
+                var i = 1;
+                foreach (DataRow data in dt.Rows)
+                {
+                    SqlCommand sqlCommand = new SqlCommand("DevolucionVenta", Cx.conexion);
+                    using (SqlCommand cmd3 = sqlCommand)
+                    {
+                        cmd3.CommandType = CommandType.StoredProcedure;
+
+                        decimal cantidadDV = Convert.ToDecimal(data[0]);
+                        int idProductoDV = Convert.ToInt32(data[1]);
+                        string tipofacturaDV = data[2].ToString();
+                        decimal subtotalDV = Convert.ToDecimal(data[3]);
+                        int idcajaDV = Convert.ToInt32(data[4]);
+                        decimal restanteDV = Convert.ToInt32(data[5]);
+
+                        if (tipofacturaDV.ToLower() == "credito")
+                        {
+                            subtotalDV = restanteDV / dt.Rows.Count;
+                        }
+
+                        //UpdateStock
+                        cmd3.Parameters.Add("@Cantidad", SqlDbType.Decimal).Value = cantidadDV;
+                        cmd3.Parameters.Add("@IdProducto", SqlDbType.Int).Value = idProductoDV;
+                        cmd3.Parameters.Add("@TipoFactura", SqlDbType.NVarChar).Value = tipofacturaDV;
+                        cmd3.Parameters.Add("@SubTotal", SqlDbType.Decimal).Value = subtotalDV;
+                        cmd3.Parameters.Add("@id_caja", SqlDbType.Int).Value = idcajaDV;
+
+                        cmd3.ExecuteNonQuery();
+
+                        if (i == dt.Rows.Count)
+                        {
+                            SqlCommand sqlCommand1 = new SqlCommand("BorrarVentaDV", Cx.conexion);
+                            using (SqlCommand cmd = sqlCommand1)
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+                                //Borrar venta luego de devolver todos los productos
+                                cmd.Parameters.Add("@IdVenta", SqlDbType.Decimal).Value = Program.Id;
+
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        i = i + 1;
+                    }
+                }
+
+                Cx.conexion.Close();
             }
         }
     }
