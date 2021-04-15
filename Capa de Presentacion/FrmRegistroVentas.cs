@@ -219,7 +219,7 @@ namespace Capa_de_Presentacion
             txtPVenta.Text = Program.PrecioVenta + "";
             txtIgv.Text = Program.itbis + "";
             txtIdV.Text = Program.Id + "";
-            txttotal.Text = Program.pago4 + "";
+            txttotal.Text = Program.total + "";
             lblsubt.Text = Program.ST + "";
             lbligv.Text = Program.igv + "";
 
@@ -261,7 +261,7 @@ namespace Capa_de_Presentacion
                 cbtipofactura.Text = Program.tipo;
                 combo_tipo_NCF.Text = Program.NCF;
                 txtNCF.Text = Program.NroComprobante;
-                txttotal.Text = Program.pago4 + "";
+                txttotal.Text = Program.total + "";
                 lblsubt.Text = Program.ST + "";
                 lbligv.Text = Program.igv + "";
                 txtidEmp.Text = Program.IdEmpleado + "";
@@ -425,6 +425,10 @@ namespace Capa_de_Presentacion
                 lblsubt.Text = Convert.ToString(SumaSubTotal);
                 lbligv.Text = Convert.ToString(SumaIgv);
                 txttotal.Text = Convert.ToString(SumaTotal);
+
+                Program.igv = Convert.ToDecimal(lbligv.Text);
+                Program.ST = Convert.ToDecimal(lblsubt.Text);
+                Program.total = Convert.ToDecimal(txttotal.Text);
             }
         }
         private void Limpiar()
@@ -448,7 +452,7 @@ namespace Capa_de_Presentacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             frmPagar pa = new frmPagar();
-            Program.pago4 = Convert.ToDecimal(txttotal.Text);
+            Program.total = Convert.ToDecimal(txttotal.Text);
             Program.igv = Convert.ToDecimal(lbligv.Text);
             Program.ST = Convert.ToDecimal(lblsubt.Text);
             pa.txtmonto.Text = txttotal.Text;
@@ -732,7 +736,7 @@ namespace Capa_de_Presentacion
             Program.ApellidosCliente = "";
             Program.NombreCliente = "";
             Program.Id = 0;
-            Program.pago4 = 0;
+            Program.total = 0;
             Program.ST = 0;
             Program.igv = 0;
             Program.fecha = "";

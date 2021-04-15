@@ -227,7 +227,7 @@ namespace Capa_de_Presentacion
             Program.NCF = dataGridView1.CurrentRow.Cells["NCF"].Value.ToString();
             Program.NroComprobante = dataGridView1.CurrentRow.Cells["nroComprobante"].Value.ToString();
             Program.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
-            Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
+            Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
             Program.ST += Convert.ToDecimal(dataGridView1.CurrentRow.Cells["subtotal"].Value.ToString());
             Program.igv += Convert.ToDecimal(dataGridView1.CurrentRow.Cells["igv"].Value.ToString());
             Program.fecha = dataGridView1.CurrentRow.Cells["fecha"].Value.ToString();
@@ -236,12 +236,12 @@ namespace Capa_de_Presentacion
             if (Program.tipo != "Credito")
             {
                 Program.Esabono = "";
-                Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
+                Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["total"].Value.ToString());
             }
             else
             {
                 Program.Esabono = "Es Abono";
-                Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["restante"].Value.ToString());
+                Program.total = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["restante"].Value.ToString());
             }
 
             Program.ReImpresion = "Copia Factura";

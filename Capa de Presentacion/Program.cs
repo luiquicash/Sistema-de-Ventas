@@ -39,7 +39,8 @@ namespace Capa_de_Presentacion
         public static string fecha4;
         public static decimal precio;
         public static decimal pago;
-        public static decimal pago4;
+        public static decimal total;
+        public static decimal total4;
         public static decimal ST;
         public static decimal igv;
         public static string nota;

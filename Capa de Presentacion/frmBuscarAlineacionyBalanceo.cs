@@ -85,7 +85,7 @@ namespace Capa_de_Presentacion
             Program.apellido4 = dataGridView1.CurrentRow.Cells["apellido"].Value.ToString();
             Program.tipopago4 = dataGridView1.CurrentRow.Cells["tipopago"].Value.ToString();
             Program.fecha4 = dataGridView1.CurrentRow.Cells["fecha"].Value.ToString();
-            Program.pago4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["pago"].Value.ToString());
+            Program.total4 = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["pago"].Value.ToString());
             Program.Id4 = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
 
             frmAlineamiento pago = new frmAlineamiento();

@@ -33,7 +33,7 @@ namespace Capa_de_Presentacion
             Program.pagoRealizado = 0;
             Program.Id4 = 0;
             Program.fecha4 = "";
-            Program.pago4 = 0;
+            Program.total4 = 0;
             Program.nota = "";
             Program.nombre4 = "";
             Program.apellido4 = "";
@@ -59,7 +59,7 @@ namespace Capa_de_Presentacion
             txttipopago.Text = Program.tipopago4;
             txtnombre.Text = Program.nombre4;
             dtpFecha.Text = Program.fecha4;
-            txtTotal.Text = Convert.ToString(Program.pago4);
+            txtTotal.Text = Convert.ToString(Program.total4);
             lblidAliBal.Text = Program.Id4 + "";
         }
 
@@ -227,7 +227,7 @@ namespace Capa_de_Presentacion
             Program.nombre4 = txtnombre.Text;
             Program.apellido4 = txtapellido.Text;
             Program.fecha4 = dtpFecha.Text;
-            Program.pago4 = Convert.ToDecimal(txtTotal.Text);
+            Program.total4 = Convert.ToDecimal(txtTotal.Text);
 
             pa.Show();
         }
