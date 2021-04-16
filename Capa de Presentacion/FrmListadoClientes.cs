@@ -19,8 +19,6 @@ namespace Capa_de_Presentacion
 
         private void FrmListadoClientes_Load(object sender, EventArgs e)
         {
-            timer1.Start();
-            timer1.Interval = 5000;
             ListarClientes();
             ListarClientes1();
             dataGridView1.ClearSelection();
@@ -124,41 +122,6 @@ namespace Capa_de_Presentacion
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            dataGridView1.ClearSelection();
-            if (e.KeyChar == 13)
-            {
-                DataTable dt = new DataTable();
-                C.Dni = txtBuscarCliente.Text;
-                dt = C.BuscarCliente(C.Dni);
-                try
-                {
-                    dataGridView1.Rows.Clear();
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        dataGridView1.Rows.Add(dt.Rows[i][0]);
-                        dataGridView1.Rows[i].Cells[0].Value = dt.Rows[i][0].ToString();
-                        dataGridView1.Rows[i].Cells[1].Value = dt.Rows[i][1].ToString();
-                        dataGridView1.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
-                        dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][3].ToString();
-                        dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][4].ToString();
-                        dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][5].ToString();
-                    }
-                    dataGridView1.ClearSelection();
-                    timer1.Stop();
-                }
-                catch (Exception ex)
-                {
-                    DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
-                }
-            }
-            else
-            {
-                ListarClientes();
-                timer1.Start();
-            }
-        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (DevComponents.DotNetBar.MessageBoxEx.Show("¿Está Seguro que Desea Sair.?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -309,6 +272,41 @@ namespace Capa_de_Presentacion
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             button1.Enabled = true;
+        }
+
+        private void txtBuscarCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtBuscarCliente.Text.Length >= 3)
+            {
+                dataGridView1.ClearSelection();
+
+                DataTable dt = new DataTable();
+                C.Dni = txtBuscarCliente.Text;
+                dt = C.BuscarCliente(C.Dni);
+                try
+                {
+                    dataGridView1.Rows.Clear();
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows.Add(dt.Rows[i][0]);
+                        dataGridView1.Rows[i].Cells[0].Value = dt.Rows[i][0].ToString();
+                        dataGridView1.Rows[i].Cells[1].Value = dt.Rows[i][1].ToString();
+                        dataGridView1.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
+                        dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][3].ToString();
+                        dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][4].ToString();
+                        dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][5].ToString();
+                    }
+                    dataGridView1.ClearSelection();
+                }
+                catch (Exception ex)
+                {
+                    DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
+                }
+            }
+            else
+            {
+                ListarClientes();
+            }
         }
     }
 }
