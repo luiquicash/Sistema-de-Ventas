@@ -40,13 +40,13 @@ namespace Capa_de_Presentacion
             if (textBox1.Text != "")
             {
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "select * from Cliente where Nombres like '%" + textBox1.Text.ToUpper() + "%' or Apellidos like '%" + textBox1.Text.ToUpper() + "%'  and ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+                comando.CommandText = "select * from Cliente where Nombres like '%" + textBox1.Text.ToUpper() + "%' or Apellidos like '%" + textBox1.Text.ToUpper() + "%'  and ProximaFechaPago <= convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
                 comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             }
             else
             {
                 //declaramos el comando para realizar la busqueda
-                comando.CommandText = "select * from Cliente where ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+                comando.CommandText = "select * from Cliente where ProximaFechaPago <= convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
                 comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             }
             //especificamos que es de tipo Text
@@ -130,7 +130,7 @@ namespace Capa_de_Presentacion
             con.ConnectionString = cadenaconexion;
             comando.Connection = con;
             //declaramos el comando para realizar la busqueda
-            comando.CommandText = "select * from Cliente where ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+            comando.CommandText = "select * from Cliente where ProximaFechaPago  <=  convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
             comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             //especificamos que es de tipo Text
             comando.CommandType = CommandType.Text;
@@ -281,7 +281,7 @@ namespace Capa_de_Presentacion
             conexion.ConnectionString = cadenaconexion;
             comando.Connection = conexion;
             //declaramos el comando para realizar la busqueda
-            comando.CommandText = "select * from Cliente where TipoPago like '%" + cbtipo.Text + "%' AND ProximaFechaPago = convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
+            comando.CommandText = "select * from Cliente where TipoPago like '%" + cbtipo.Text + "%' AND ProximaFechaPago  <=  convert(datetime,CONVERT(varchar(10), @fecha, 103),103)";
             comando.Parameters.AddWithValue("@fecha", dtpfecha1.Value);
             //especificamos que es de tipo Text
             comando.CommandType = CommandType.Text;
