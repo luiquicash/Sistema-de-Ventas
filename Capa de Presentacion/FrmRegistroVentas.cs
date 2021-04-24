@@ -209,7 +209,15 @@ namespace Capa_de_Presentacion
             }
             else
             {
-                txtDatos.Text = Program.datoscliente;
+                if (txtDatos.Text != null && txtDatos.Text != "")
+                {
+                    Program.datoscliente = txtDatos.Text;
+
+                }
+                if (Program.datoscliente != null && Program.datoscliente != "")
+                {
+                    txtDatos.Text = Program.datoscliente;
+                }
             }
 
             txtIdProducto.Text = Program.IdProducto + "";
