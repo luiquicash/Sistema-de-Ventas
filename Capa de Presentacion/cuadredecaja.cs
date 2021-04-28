@@ -391,6 +391,8 @@ namespace Capa_de_Presentacion
 
         private void label18_Click(object sender, EventArgs e)
         {
+            Program.abiertosecundarias = false;
+            Program.abierto = false;
             if (DevComponents.DotNetBar.MessageBoxEx.Show("¿Desea realizar una copia de seguridad de la base de datos?", "Sistema de Ventas.", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
             {
                 ////////////////////Borrar copia de seguridad de base de datos anterior
