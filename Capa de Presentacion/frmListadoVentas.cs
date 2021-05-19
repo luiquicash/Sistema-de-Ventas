@@ -171,16 +171,16 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows[renglon].Cells["PrecioCompra"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("PrecioCompra")));
 
 
-                total += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells["total"].Value);
                 subtotal = Convert.ToDecimal(dataGridView1.Rows[renglon].Cells["subtotal"].Value);
                 cantidad = Convert.ToInt32(dataGridView1.Rows[renglon].Cells["can"].Value);
                 preciocompra = Convert.ToDecimal(dataGridView1.Rows[renglon].Cells["PrecioCompra"].Value);
 
                 ganancias += subtotal - (preciocompra * cantidad);
+                total = total + subtotal;
 
+            }
                 txtGanancias.Text = Convert.ToString(Math.Round(ganancias, 2));
                 txtTtal.Text = Convert.ToString(Math.Round(total, 2));
-            }
             con.Close();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -560,17 +560,17 @@ namespace Capa_de_Presentacion
                 dataGridView1.Rows[renglon].Cells["idcliente"].Value = Convert.ToString(dr.GetInt32(dr.GetOrdinal("IdCliente")));
                 dataGridView1.Rows[renglon].Cells["nombrecliente"].Value = dr.GetString(dr.GetOrdinal("NombreCliente"));
                 dataGridView1.Rows[renglon].Cells["PrecioCompra"].Value = Convert.ToString(dr.GetDecimal(dr.GetOrdinal("PrecioCompra")));
-
-                total += Convert.ToDecimal(dataGridView1.Rows[renglon].Cells["total"].Value);
+                
                 subtotal = Convert.ToDecimal(dataGridView1.Rows[renglon].Cells["subtotal"].Value);
                 cantidad = Convert.ToInt32(dataGridView1.Rows[renglon].Cells["can"].Value);
                 preciocompra = Convert.ToDecimal(dataGridView1.Rows[renglon].Cells["PrecioCompra"].Value);
 
                 ganancias += subtotal - (preciocompra * cantidad);
+                total = total + subtotal;
 
+            }
                 txtGanancias.Text = Convert.ToString(Math.Round(ganancias, 2));
                 txtTtal.Text = Convert.ToString(Math.Round(total, 2));
-            }
             dataGridView3.ClearSelection();
             gridforcategoryandquantity(dtpfecha1.Value, dtpfecha2.Value);
             con.Close();
