@@ -92,7 +92,8 @@ namespace Capa_de_Presentacion
 
             if (leer.Read() == true)
             {
-                lbldeudas.Text = leer["deuda"].ToString();
+                var deuda = Math.Round(Convert.ToDecimal(leer["deuda"].ToString()));
+                lbldeudas.Text = deuda.ToString();
             }
             Cx.conexion.Close();
         }
@@ -172,7 +173,7 @@ namespace Capa_de_Presentacion
                 txtde1000.ReadOnly = true;
                 txtde2000.ReadOnly = true;
 
-                lblmontocuadre.Text = Convert.ToString(dataGridView1.Rows[renglon].Cells[2].Value);
+                lblmontocuadre.Text = dr.GetDecimal(dr.GetOrdinal("monto")).ToString();
 
                 btnregistrar.Visible = false;
                 btnimprimir.Visible = true;
@@ -183,7 +184,7 @@ namespace Capa_de_Presentacion
         }
         public void llenargridpagos(int id)
         {
-            decimal pagos = 0, devuelta = 0, total = 0;
+            decimal pagos = 0, devuelta = 0;
             //declar=0amos la cadena  de conexion
             string cadenaconexion = Cx.conet;
             //variable de tipo Sqlconnection
@@ -223,7 +224,7 @@ namespace Capa_de_Presentacion
                 }
             }
 
-            lblmontoingreso.Text = pagos.ToString();
+            lblmontoingreso.Text = Math.Round(Convert.ToDecimal(pagos)).ToString();
             con.Close();
         }
 
@@ -239,15 +240,15 @@ namespace Capa_de_Presentacion
             if (leer.Read() == true)
             {
                 decimal montogasto = 0;
-                var montoactual = leer["montoactual"].ToString();
-                lblmontoinicial.Text = leer["monto_inicial"].ToString();
+                var montoactual = Math.Round(Convert.ToDecimal(leer["montoactual"].ToString())).ToString();
+                lblmontoinicial.Text = Math.Round(Convert.ToDecimal(leer["monto_inicial"].ToString())).ToString();
 
                 if (lblmontogasto.Text != "")
                 {
-                    montogasto = Convert.ToDecimal(lblmontogasto.Text);
+                    montogasto = Math.Round(Convert.ToDecimal(lblmontogasto.Text));
                 }
 
-                lblmontocaja.Text = (Math.Round(Convert.ToDecimal(montoactual) - montogasto, 2)).ToString();
+                lblmontocaja.Text = Math.Round(Convert.ToDecimal(montoactual) - montogasto).ToString();
             }
 
             Cx.conexion.Close();
@@ -268,7 +269,7 @@ namespace Capa_de_Presentacion
                 totalgasto += Convert.ToDecimal(monto);
             }
 
-            lblmontogasto.Text = totalgasto.ToString();
+            lblmontogasto.Text = Math.Round(totalgasto).ToString();
 
             Cx.conexion.Close();
         }
@@ -305,7 +306,7 @@ namespace Capa_de_Presentacion
                     doc.Open();
                     string remito = lblLogo.Text;
                     string ubicado = lblDir.Text;
-                    string envio = "Fecha : " + DateTime.Now.ToShortTimeString();
+                    string envio = "Fecha : " + +DateTime.Today.Day + "/" + DateTime.Today.Month + "/" + DateTime.Today.Year;
 
                     Chunk chunk = new Chunk(remito, FontFactory.GetFont("ARIAL", 16, iTextSharp.text.Font.BOLD, color: BaseColor.BLUE));
                     var fecha = new Paragraph(envio, FontFactory.GetFont("ARIAL", 8, iTextSharp.text.Font.ITALIC));
@@ -361,7 +362,7 @@ namespace Capa_de_Presentacion
 
             if (leer.Read() == true)
             {
-                lbldeudas.Text = leer["deuda"].ToString();
+                lbldeudas.Text = Math.Round(Convert.ToDecimal(leer["deuda"])).ToString();
                 lblidcaja.Text = leer["id_caja"].ToString();
             }
             Cx.conexion.Close();
@@ -449,12 +450,12 @@ namespace Capa_de_Presentacion
 
             if (lblmontogasto.Text != "...")
             {
-                gastos = Convert.ToDecimal(lblmontogasto.Text);
+                gastos = Math.Round(Convert.ToDecimal(lblmontogasto.Text));
             }
 
             if (lblmontoingreso.Text != "...")
             {
-                ingresos = Convert.ToDecimal(lblmontoingreso.Text);
+                ingresos = Math.Round(Convert.ToDecimal(lblmontoingreso.Text));
             }
 
             decimal cuadre = ingresos - gastos;
@@ -502,7 +503,7 @@ namespace Capa_de_Presentacion
 
             total = Math.Round((5 * decimal.Parse(txtde5.Text)) + (10 * decimal.Parse(txtde10.Text)) + (25 * decimal.Parse(txtde25.Text)) +
                 (50 * decimal.Parse(txtde50.Text)) + (100 * decimal.Parse(txtde100.Text)) + (200 * decimal.Parse(txtde200.Text)) + (500 * decimal.Parse(txtde500.Text)) +
-                (1000 * decimal.Parse(txtde1000.Text)) + (2000 * decimal.Parse(txtde2000.Text)) + Convert.ToDecimal(lblmontoinicial.Text), 2);
+                (1000 * decimal.Parse(txtde1000.Text)) + (2000 * decimal.Parse(txtde2000.Text)) + Convert.ToDecimal(lblmontoinicial.Text));
 
             if (cuadre < total)
             {

@@ -253,7 +253,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Version 1.3";
+            this.label3.Text = "Version 1.4";
             // 
             // dgvCaja
             // 
